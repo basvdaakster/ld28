@@ -16,6 +16,10 @@ package
 			super(640, 360, MenuState, 2);
 			instance = this;
 		}
+		
+		public function Test():void {
+			//Test voor GitHub
+		}
 	}
 	
 }
