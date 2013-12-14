@@ -26,7 +26,7 @@ package
 		
 		public function TextPopup(text:String, callback:* = null, multilineButtons:Boolean = false) 
 		{
-			height = 100;
+			height = 20;
 			width = 400;
 			
 			this.multilineButtons = multilineButtons;
@@ -34,6 +34,7 @@ package
 			things = new FlxGroup();
 			
 			this.text = new FlxText(0, 0, width - 4, text);
+			height += this.text.height;
 			this.text.shadow = 0xCC000000;
 			
 			buttons = new Vector.<CustomButton>();
@@ -88,8 +89,8 @@ package
 			}
 			else {
 				var yy:int = y + height;
-				for (var i:uint = 0; i < buttons.length; i++) {
-					var but:FlxButton = buttons[i];
+				for (var j:int = buttons.length - 1; j >= 0; j--) {
+					var but:FlxButton = buttons[j];
 					
 					yy -= but.height + 2;
 					but.x = x + width - but.width - 2;

@@ -69,16 +69,7 @@ package
 			FlxG.worldBounds = tileMap.getBounds();
 			FlxG.camera.follow(thePlayer);
 			
-			var ptr:uint = 0;
-			for each (var mem:Object in DayData.SER_OBJS_TOWN) {
-				while (ptr < members.length && !(members[ptr] is ISerializable)) ptr++;
-				if (ptr < members.length) {
-					(members[ptr] as ISerializable).fromObject(mem);
-				}
-				else {
-					break;
-				}
-			}
+			super.create();
 		}
 		
 		override public function update():void 
@@ -87,20 +78,6 @@ package
 			
 			super.update();
 		}
-		
-		override public function destroy():void 
-		{
-			DayData.SER_OBJS_TOWN = [];
-			for (var i:uint = 0; i < members.length; i++) {
-				if (members[i] is ISerializable) {
-					var imem:ISerializable = members[i] as ISerializable;
-					DayData.SER_OBJS_TOWN.push(members[i].toObject());
-				}
-			}
-			
-			super.destroy();
-		}
-		
 	}
 
 }

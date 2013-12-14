@@ -43,6 +43,8 @@ package
 			hud.add(dbgText);
 			
 			super.create();
+			
+			DayData.loadSerializedObjects(this);
 		}
 		
 		override public function update():void 
@@ -50,6 +52,13 @@ package
 			dbgText.text = "Player Pos: (" + Math.round(thePlayer.x) + ", " + Math.round(thePlayer.y) + ")";
 			
 			super.update();
+		}
+		
+		override public function destroy():void 
+		{
+			DayData.saveSerializedObjects(this);
+			
+			super.destroy();
 		}
 		
 	}
