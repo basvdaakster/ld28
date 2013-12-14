@@ -15,6 +15,7 @@ package
 		{
 			super(640, 480, TownState, 1);
 			instance = this;
+			FlxG.mouse.show();
 			FlxG.debug = true;
 			FlxG.visualDebug = true;
 		}

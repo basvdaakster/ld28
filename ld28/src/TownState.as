@@ -61,6 +61,11 @@ package
 			add(thePlayer);
 			add(dbgText);
 			
+			var interactible:Interactible = new Interactible();
+			interactible.x = 96;
+			interactible.y = 224;
+			add(interactible);
+			
 			add(hud);
 			
 			FlxG.worldBounds = tileMap.getBounds();
