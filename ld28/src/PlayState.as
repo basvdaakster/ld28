@@ -58,7 +58,7 @@ package
 			add(dbgText);
 			
 			FlxG.worldBounds = tileMap.getBounds();
-			//lxG.camera.setBounds(0, 0, tileMap.width, tileMap.height);
+			FlxG.camera.setBounds(0, 0, tileMap.width, tileMap.height);
 			FlxG.camera.follow(thePlayer);
 		}
 		
