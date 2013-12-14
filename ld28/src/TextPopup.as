@@ -43,9 +43,9 @@ package
 			if (callback is Array) {
 				for (var i:uint = 0; i < callback.length; i++) {
 					if(callback[i] is FlxButton) {
-						var but:FlxButton = callback[i] as FlxButton;
-						buttons.push(but);
-						things.add(but);
+						var butt:FlxButton = callback[i] as FlxButton;
+						buttons.push(butt);
+						things.add(butt);
 					}
 				}
 			}

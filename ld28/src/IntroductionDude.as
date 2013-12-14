@@ -8,11 +8,12 @@ package
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxTilemap;
 	import org.flixel.FlxU;
+	import org.flixel.plugin.DebugPathDisplay;
 	/**
 	 * ...
 	 * @author Bas van den Aakster
 	 */
-	public class IntroductionDude extends FlxSprite
+	public class IntroductionDude extends FlxSprite implements ISerializable
 	{
 		private var state:PlayState;
 		private var myPath:FlxPath;
@@ -25,13 +26,14 @@ package
 		
 		public function IntroductionDude() 
 		{
-			this.state = FlxG.state as PlayState;
-			
 			makeGraphic(24, 24, 0xFFCFDF0B);
 		}
 
 		override public function update():void 
 		{ 
+			state = FlxG.state is PlayState ? FlxG.state as PlayState : null;
+			if (state == null) return;
+			
 			if (!following && !done) {
 				myPath = state.tileMap.findPath(getMidpoint(), state.thePlayer.getMidpoint());
 				
@@ -86,6 +88,22 @@ package
 			var p:TextPopup = new TextPopup("Go to the saloon you fucking noob", [but1]);
 			p.x = p.y = 10;
 			state.hud.add(p);
+		}
+		
+		public function toObject():Object {
+			var o:Object = {
+				x: x,
+				y: y,
+				done: done
+			};
+			
+			return o;
+		}
+		
+		public function fromObject(o:Object):void {
+			x = o.x;
+			y = o.y;
+			done = o.done;
 		}
 		
 	}

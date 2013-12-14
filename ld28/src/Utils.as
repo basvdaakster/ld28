@@ -13,6 +13,9 @@ package
 			// Tiled fix
 			for (var i:uint = 0; i < dat.length; i++) {
 				dat[i]--;
+				if (dat[i] < 0) {
+					dat[i] = 0;
+				}
 			}
 			
 			return dat;
