@@ -16,6 +16,8 @@ package
 		[Embed(source="../assets/hand.png")]
 		public static var CURSOR_HAND:Class;
 		
+		[Embed(source = "../assets/arrow.png")]
+		public static var BOUNCING_ARROW:Class;		
 	}
 
 }

@@ -5,6 +5,7 @@ package
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxState;
 	import org.flixel.FlxText;
+	import org.flixel.FlxTilemap;
 	
 	/**
 	 * ...
@@ -13,8 +14,9 @@ package
 	public class PlayState extends FlxState 
 	{
 		
-		protected var hud:FlxGroup;
-		protected var thePlayer:Player;
+		public var hud:FlxGroup;
+		public var thePlayer:Player;
+		public var tileMap:FlxTilemap;
 		protected var dbgText:FlxText;
 		
 		protected var spawnPoint:FlxPoint = null;
@@ -28,6 +30,8 @@ package
 				thePlayer.x = spawnPoint.x * 32 + 4;
 				thePlayer.y = spawnPoint.y * 32 + 4;
 			}
+			
+			hud = new FlxGroup();
 			
 			// dbg
 			dbgText = new FlxText(10, 10, FlxG.width - 10, "");

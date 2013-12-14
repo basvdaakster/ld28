@@ -1,5 +1,6 @@
 package 
 {
+	import flash.system.SecurityPanel;
 	import org.flixel.*;
 	
 	/**
@@ -13,11 +14,26 @@ package
 		
 		public function Game():void 
 		{
+			DayData.thePlayer = new Player();
+			
 			super(640, 480, TownState, 1);
 			instance = this;
+			
+			DayData.reset();			
 			FlxG.mouse.show();
+			
 			FlxG.debug = true;
 			FlxG.visualDebug = true;
+		}
+		
+		override protected function update():void 
+		{
+			if(FlxG.keys.justPressed("G")) {
+				FlxG.debug = !FlxG.debug;
+				FlxG.visualDebug = FlxG.debug;
+			}
+			
+			super.update();
 		}
 	}
 	

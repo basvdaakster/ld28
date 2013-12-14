@@ -14,8 +14,6 @@ package
 	public class SaloonState extends PlayState 
 	{
 		
-		private var tileMap:FlxTilemap;
-		
 		private var testMapData:Array = [
 			2, 3, 3, 3, 3, 3, 3, 3, 4, 
 			5, 6, 6, 6, 6, 6, 6, 6, 7, 

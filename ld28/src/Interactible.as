@@ -21,6 +21,11 @@ package
 			onOut = function():void {
 				FlxG.mouse.load(Assets.CURSOR_POINTER);
 			};
+			
+			onUp = onClick;
+		}
+		
+		public function onClick():void {
 		}
 		
 	}

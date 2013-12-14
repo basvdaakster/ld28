@@ -16,8 +16,6 @@ package
 	public class TownState extends PlayState
 	{
 		
-		private var tileMap:FlxTilemap;
-		
 		private var testMapData:Array = [
 			1, 1, 1, 1, 1, 1, 1, 1, 1,
 			1, 0, 0, 0, 0, 0, 0, 0, 1,
@@ -52,7 +50,11 @@ package
 			// Add portal to next room
 			var portal:FlxTile = new FlxTile(tileMap, 2, 32, 32, false, 0x1111);
 			tileMap.setTileProperties(2, FlxObject.ANY, function():void {
-				var saloon:SaloonState = new SaloonState(new FlxPoint(7, 11));
+				var saloon:SaloonState = DayData.saloonState;
+				
+				DayData.thePlayer.x = 7;
+				DayData.thePlayer.y = 11;
+				
 				FlxG.switchState(new TransitionState(saloon));
 			}, Player);
 			
@@ -64,7 +66,12 @@ package
 			var interactible:Interactible = new Interactible();
 			interactible.x = 96;
 			interactible.y = 224;
-			add(interactible);
+			//add(interactible);
+			
+			var intro:IntroductionDude = new IntroductionDude();
+			intro.x = 64;
+			intro.y = 232;
+			add(intro);
 			
 			add(hud);
 			
