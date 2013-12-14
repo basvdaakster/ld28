@@ -41,6 +41,8 @@ package
 			this.spawnPoint = new FlxPoint(4, 14);
 			super(spawnPoint ? spawnPoint : this.spawnPoint);
 			
+			//testMapData = Utils.convertTiledArray(testMapData);
+			
 			tileMap = new FlxTilemap();
 			tileMap.loadMap(FlxTilemap.arrayToCSV(testMapData, 9), Assets.SHEET_TEST, 32, 32);
 		}
@@ -51,7 +53,7 @@ package
 			var portal:FlxTile = new FlxTile(tileMap, 2, 32, 32, false, 0x1111);
 			tileMap.setTileProperties(2, FlxObject.ANY, function():void {
 				var saloon:SaloonState = new SaloonState(new FlxPoint(7, 11));
-				FlxG.switchState(saloon);
+				FlxG.switchState(new TransitionState(saloon));
 			}, Player);
 			
 			// Add to state
@@ -62,7 +64,6 @@ package
 			add(hud);
 			
 			FlxG.worldBounds = tileMap.getBounds();
-			FlxG.camera.setBounds(0, 0, tileMap.width, tileMap.height);
 			FlxG.camera.follow(thePlayer);
 		}
 		
