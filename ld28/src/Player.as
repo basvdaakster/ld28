@@ -12,7 +12,9 @@ package
 		private var walkSpeed:Number = 150;
 		
 		public function Player() {
-			makeGraphic(32, 32);
+			makeGraphic(24, 24);
+			width = 24;
+			height = 24;
 		}
 		
 		override public function update():void 

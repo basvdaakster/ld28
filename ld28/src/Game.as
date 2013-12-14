@@ -13,8 +13,10 @@ package
 		
 		public function Game():void 
 		{
-			super(640, 480, PlayState, 1);
+			super(640, 480, TownState, 1);
 			instance = this;
+			FlxG.debug = true;
+			FlxG.visualDebug = true;
 		}
 	}
 	
