@@ -78,14 +78,20 @@ package
 		{
 			done = true;
 			
-			var but1:FlxButton = new FlxButton(0, 0, "G WAT JIJ", function():void {
+			var but1:CustomButton = new CustomButton("G WAT PRAAT JIJ G", function():void {
 				p.removeFromState();
 				
 				var arrow:BouncingArrow = new BouncingArrow(32, 11 * 32, 270);
 				FlxG.state.add(arrow);
-			});
+			}, 200);
+			var but2:CustomButton = new CustomButton("WOLLAH K SWEER G", function():void {
+				p.removeFromState();
+				
+				var arrow:BouncingArrow = new BouncingArrow(32, 11 * 32, 270);
+				FlxG.state.add(arrow);
+			}, 200);
 			
-			var p:TextPopup = new TextPopup("Go to the saloon you fucking noob", [but1]);
+			var p:TextPopup = new TextPopup("Go to the saloon you fucking noob", [but1,but2], true);
 			p.x = p.y = 10;
 			state.hud.add(p);
 		}
