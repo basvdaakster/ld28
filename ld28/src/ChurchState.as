@@ -27,7 +27,7 @@ package
 			
 			// Add portal to next room
 			var portal:Trigger = new Trigger(0-8, 5 * 32, function():void {
-				var town:TownState = new TownState(new FlxPoint(12, 22));
+				var town:TownState = new TownState(new FlxPoint(13, 22));
 				FlxG.switchState(new TransitionState(town));
 			});
 			mapObjects.add(portal);
