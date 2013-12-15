@@ -21,10 +21,12 @@ package
 		public var tileMap:FlxTilemap;
 		protected var dbgText:FlxText;
 		private var timeText:FlxText;
+		private var itemFrame:ItemFrame;
 		
 		public var mapObjects:FlxGroup;
 		
 		protected var spawnPoint:FlxPoint = null;
+		
 		
 		public function PlayState(spawnPoint:FlxPoint = null, facing:uint = FlxObject.UP) {
 			this.spawnPoint = spawnPoint;
@@ -50,8 +52,14 @@ package
 			timeText.shadow = 0xee000000;
 			timeText.alignment = "center";
 			
+			itemFrame = new ItemFrame();
+				
+			itemFrame.y = FlxG.height - itemFrame.height - 4;
+			itemFrame.x = 4;
+			
 			hud.add(dbgText);
 			hud.add(timeText);
+			hud.add(itemFrame);
 		}
 		
 		override public function create():void 

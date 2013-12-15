@@ -15,10 +15,10 @@ package
 		public function Player() {
 			loadGraphic(Assets.CHARACTERS, true, false, 32, 32);
 			
-			width = 17;
-			height = 24;
-			offset.x = (32 - 17) / 2;
-			offset.y = (32 - 24) / 2;
+			width = 12;
+			height = 12;
+			offset.x = (32 - width) / 2;
+			offset.y = (32 - height);
 			
 			var fps:Number = 8;
 			addAnimation("idle_n", [ 11 ], fps);

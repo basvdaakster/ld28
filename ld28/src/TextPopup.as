@@ -26,7 +26,7 @@ package
 		
 		public function TextPopup(text:String, callback:* = null, multilineButtons:Boolean = false) 
 		{
-			height = 0;
+			height = 20;
 			width = FlxG.width - 4;
 			
 			this.multilineButtons = multilineButtons;
@@ -67,6 +67,10 @@ package
 		public function removeFromState():void 
 		{
 			this.exists = false;
+			for each(var b:CustomButton in buttons) {
+				b.destroy();
+			}
+			buttons = null;
 			FlxG.state.remove(this, true);
 		}
 		

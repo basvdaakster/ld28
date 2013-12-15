@@ -26,8 +26,8 @@ package
 			5, 6, 6, 6, 6, 6, 6, 6, 7, 
 			5, 6, 6, 6, 6, 6, 6, 6, 7, 
 			5, 6, 6, 6, 6, 6, 6, 6, 7, 
-			5, 6, 6, 6, 6, 6, 6, 6, 7, 
-			5, 6, 6, 6, 6, 6, 6, 6, 3, 
+			5, 6, 6, 6, 6, 6, 6, 6, 45, 
+			5, 6, 6, 6, 6, 6, 6, 6, 55, 
 			5, 6, 6, 6, 6, 6, 6, 6, 7, 
 			5, 6, 6, 6, 6, 6, 6, 6, 7, 
 			5, 6, 6, 6, 6, 6, 6, 6, 7, 
@@ -42,14 +42,20 @@ package
 			tileMap.loadMap(FlxTilemap.arrayToCSV(testMapData, 9), Assets.SHEET_TEST, 32, 32);
 			
 			// Add portal to next room
-			var portal:FlxTile = new FlxTile(tileMap, 2, 32, 32, false, 0x1111);
-			tileMap.setTileProperties(2, FlxObject.ANY, function():void {
-				var town:TownState = new TownState(new FlxPoint(1, 11));
+			var portal:Trigger = new Trigger(8 * 32 + 8, 11 * 32, function():void {
+				var town:TownState = new TownState(new FlxPoint(2, 23));
 				FlxG.switchState(new TransitionState(town));
-			}, Player);
+			});
+			mapObjects.add(portal);
 			
 			// Disable collisions for floor tile
-			tileMap.setTileProperties(5, FlxObject.NONE);
+			for each(var tile:uint in Assets.SHEET_TEST_PASSABLES) {
+				tileMap.setTileProperties(tile, FlxObject.NONE);
+			}
+			
+			var bartender:Bartender = new Bartender();
+			bartender.x = bartender.y = 32;
+			mapObjects.add(bartender);
 		}
 		
 		override public function create():void 

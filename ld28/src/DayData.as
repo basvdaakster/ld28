@@ -14,6 +14,7 @@ package
 		public static var LIFE_TIME:Number = 2 * 60;
 		public static var CURRENT_DAY_TIME:Number = 0;
 		public static var SERIALIZED_OBJECTS:Object = { };
+		public static var INVENTORY:Item = null;
 		
 		public static function saveSerializedObjects(state:PlayState):void {
 			for (var i:uint = 0; i < state.mapObjects.members.length; i++) {

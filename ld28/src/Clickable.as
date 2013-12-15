@@ -3,16 +3,19 @@ package
 	import org.flixel.FlxButton;
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
+	import org.flixel.FlxU;
 	/**
 	 * ...
 	 * @author Bas van den Aakster
 	 */
-	public class Interactible extends FlxButton
+	public class Clickable extends FlxButton
 	{
 		
-		public function Interactible() 
+		public static var RANGE:Number = 32;
+		
+		public function Clickable() 
 		{
-			makeGraphic(24, 24);
+			super();
 			
 			onOver = function():void {
 				FlxG.mouse.load(Assets.CURSOR_HAND);
