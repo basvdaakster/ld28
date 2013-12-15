@@ -41,16 +41,55 @@ package
 			tileMapAiCollision.loadMap(FlxTilemap.arrayToCSV(collMapData, 20), Assets.MAIN_SHEET, 32, 32);
 			
 			// Add portals
+			
+			//Saloon portal
 			var portalSaloon:Trigger = new Trigger(6 * 32, 21.75 * 32, function():void {
 				var saloon:SaloonState = new SaloonState(new FlxPoint(8, 4), FlxObject.LEFT);
 				FlxG.switchState(new TransitionState(saloon));
 			});
 			mapObjects.add(portalSaloon);
+			
+			//Casino portal
 			var portalCasino:Trigger = new Trigger(6 * 32, 28.75 * 32, function():void {
 				var casino:CasinoState = new CasinoState(new FlxPoint(8, 4), FlxObject.LEFT);
 				FlxG.switchState(new TransitionState(casino));
 			});
 			mapObjects.add(portalCasino);
+			
+			//Shop portal
+			var portalShop:Trigger = new Trigger(6 * 32, 12.75 * 32, function():void {
+				var shop:ShopState = new ShopState(new FlxPoint(8, 5), FlxObject.LEFT);
+				FlxG.switchState(new TransitionState(shop));
+			});
+			mapObjects.add(portalShop);
+			
+			//Brothel portal
+			var portalBrothel:Trigger = new Trigger(14 * 32+8, 28.75 * 32, function():void {
+				var brothel:BrothelState = new BrothelState(new FlxPoint(1, 5), FlxObject.RIGHT);
+				FlxG.switchState(new TransitionState(brothel));
+			});
+			mapObjects.add(portalBrothel);
+			
+			//Church portal
+			var portalChurch:Trigger = new Trigger(14 * 32 +8, 21.75 * 32, function():void {
+				var church:ChurchState = new ChurchState(new FlxPoint(1, 5), FlxObject.RIGHT);
+				FlxG.switchState(new TransitionState(church));
+			});
+			mapObjects.add(portalChurch); 
+			
+			//Bank portal
+			var portalbank:Trigger = new Trigger(14 * 32 +8, 12.75 * 32, function():void {
+				var bank:BankState = new BankState(new FlxPoint(1, 5), FlxObject.RIGHT);
+				FlxG.switchState(new TransitionState(bank));
+			});
+			mapObjects.add(portalbank);
+			
+			//TownHall portal
+			var portalHall:Trigger = new Trigger(10 * 32, 6 * 32, function():void {
+				var hall:TownHallState = new TownHallState(new FlxPoint(5,8), FlxObject.UP);
+				FlxG.switchState(new TransitionState(hall));
+			});
+			mapObjects.add(portalHall);
 			
 			var trough:Trough = new Trough(8, 19);
 			mapObjects.add(trough);
