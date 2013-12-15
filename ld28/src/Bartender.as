@@ -9,8 +9,6 @@ package
 	 */
 	public class Bartender extends Clickable
 	{
-		private var anim:FlxSprite;
-		
 		public function Bartender() 
 		{
 			makeGraphic(32, 32, 0);
@@ -38,13 +36,6 @@ package
 			p.x = p.y = 2;
 			
 			super.onClick();
-		}
-		
-		override public function draw():void 
-		{
-			anim.x = x;
-			anim.y = y;
-			anim.draw();
 		}
 		
 	}

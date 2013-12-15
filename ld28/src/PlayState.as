@@ -87,7 +87,7 @@ package
 			super.create();
 		}
 		
-		var cheatIndex:int = 0;
+		private var cheatIndex:int = 0;
 		override public function update():void 
 		{
 			dbgText.text = "Player Pos: (" + Math.round(thePlayer.x / 1) + ", " + Math.round(thePlayer.y / 1) + ")\n";

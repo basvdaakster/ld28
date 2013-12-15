@@ -38,7 +38,7 @@ package
 			this.text.shadow = 0xCC000000;
 			
 			buttons = new Vector.<CustomButton>();
-			if (callback is Function) { 
+			if (callback is Function || callback == null) { 
 				var but:CustomButton = new CustomButton("OK", callback);
 				buttons.push(but);
 				things.add(but);

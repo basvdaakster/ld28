@@ -118,6 +118,9 @@ package
 			intro.x = 10 * 32;
 			intro.y = 29 * 32;
 			mapObjects.add(intro);
+			
+			var test:Talker = new Talker(11, 30, ["asd", "dsa"]);
+			mapObjects.add(test);
 		}
 		
 		override public function update():void 

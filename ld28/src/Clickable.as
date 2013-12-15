@@ -12,6 +12,7 @@ package
 	{
 		
 		public static var RANGE:Number = 32;
+		protected var anim:FlxSprite;
 		
 		public function Clickable() 
 		{
@@ -29,6 +30,22 @@ package
 		}
 		
 		public function onClick():void {
+		}
+		
+		override public function update():void 
+		{
+			if (anim) anim.update();
+			super.update();
+		}
+		
+		override public function draw():void 
+		{
+			super.draw();
+			if(anim) {
+				anim.x = x;
+				anim.y = y;
+				anim.draw();
+			}
 		}
 		
 	}
