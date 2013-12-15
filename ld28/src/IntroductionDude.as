@@ -27,6 +27,9 @@ package
 		public function IntroductionDude() 
 		{
 			makeGraphic(24, 24, 0xFFCFDF0B);
+			solid = true;
+			immovable = true;
+			Player.blockInput = true;
 		}
 
 		override public function update():void 
@@ -38,7 +41,7 @@ package
 				myPath = state.tileMap.findPath(getMidpoint(), state.thePlayer.getMidpoint());
 				
 				if (myPath) {
-					followPath(myPath, 100);
+					followPath(myPath, 200);
 					following = true;
 				}
 			}
@@ -81,18 +84,14 @@ package
 			var but1:CustomButton = new CustomButton("G WAT PRAAT JIJ G", function():void {
 				p.removeFromState();
 				
-				var arrow:BouncingArrow = new BouncingArrow(32, 11 * 32, 270);
-				FlxG.state.add(arrow);
-			}, 200);
-			var but2:CustomButton = new CustomButton("WOLLAH K SWEER G", function():void {
-				p.removeFromState();
+				var arrow:BouncingArrow = new BouncingArrow(3 * 32, 23 * 32, 270);
+				(FlxG.state as PlayState).mapObjects.add(arrow);
 				
-				var arrow:BouncingArrow = new BouncingArrow(32, 11 * 32, 270);
-				FlxG.state.add(arrow);
-			}, 200);
+				Player.blockInput = false;
+			}, 100);
 			
-			var p:TextPopup = new TextPopup("Go to the saloon you fucking noob", [but1,but2], true);
-			p.x = p.y = 10;
+			var p:TextPopup = new TextPopup("Go to the saloon you fucking noob", [but1], true);
+			p.x = p.y = 2;
 			state.hud.add(p);
 		}
 		
@@ -110,6 +109,9 @@ package
 			x = o.x;
 			y = o.y;
 			done = o.done;
+			if(done) {
+				Player.blockInput = false;
+			}
 		}
 		
 	}

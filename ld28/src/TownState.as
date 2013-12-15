@@ -18,53 +18,38 @@ package
 	public class TownState extends PlayState
 	{
 		
-		private var testMapData:Array = [
-			1, 1, 1, 1, 1, 1, 1, 1, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			2, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 1, 1, 1, 1, 1, 1, 1, 1,
-		];
+		private var testMapData:Array = [51, 51, 51, 51, 51, 51, 38, 39, 40, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 31, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 41, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 31, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 41, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 31, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 41, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 31, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 41, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 9, 16, 40, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 20, 5, 50, 51, 51, 51, 48, 49, 50, 51, 51, 51, 38, 17, 9, 20, 5, 50, 51, 51, 51, 48, 49, 50, 51, 51, 51, 64, 7, 20, 20, 5, 50, 51, 51, 51, 48, 49, 50, 51, 51, 51, 34, 35, 20, 20, 22, 23, 51, 51, 51, 48, 49, 19, 39, 39, 39, 44, 45, 20, 20, 42, 50, 51, 51, 51, 48, 49, 49, 49, 49, 49, 54, 55, 20, 20, 52, 50, 51, 51, 51, 48, 49, 29, 59, 59, 59, 53, 7, 20, 20, 5, 50, 51, 51, 51, 48, 49, 50, 51, 51, 51, 74, 75, 75, 20, 5, 50, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 75, 65, 60, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 48, 49, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 58, 59, 60, 51, 51, 51, 51, 51, 51];
 		
-		public function TownState(spawnPoint:FlxPoint = null) {
-			this.spawnPoint = new FlxPoint(4, 14);
-			super(spawnPoint ? spawnPoint : this.spawnPoint);
+		public function TownState(spawnPoint:FlxPoint = null, facing:uint = FlxObject.UP) {
+			this.spawnPoint = new FlxPoint(7, 28);
+			super(spawnPoint ? spawnPoint : this.spawnPoint, facing);
 			
-			//testMapData = Utils.convertTiledArray(testMapData);
+			testMapData = Utils.convertTiledArray(testMapData);
 			
 			tileMap = new FlxTilemap();
-			tileMap.loadMap(FlxTilemap.arrayToCSV(testMapData, 9), Assets.SHEET_TEST, 32, 32);
-			// Add portal to next room
-			var portal:FlxTile = new FlxTile(tileMap, 2, 32, 32, false, 0x1111);
-			tileMap.setTileProperties(2, FlxObject.ANY, function():void {
-				var saloon:SaloonState = new SaloonState(new FlxPoint(7, 11));
+			tileMap.loadMap(FlxTilemap.arrayToCSV(testMapData, 15), Assets.SHEET_TEST, 32, 32);
+			
+			// Add portals
+			var portal:Trigger = new Trigger(24, 22.75 * 32, function():void {
+				var saloon:SaloonState = new SaloonState(new FlxPoint(7, 11), FlxObject.LEFT);
 				FlxG.switchState(new TransitionState(saloon));
-			}, Player);
-			// Add to state
-			add(tileMap);
-			add(thePlayer);
-			add(dbgText);
+			});
+			mapObjects.add(portal);
+			
+			for each(var tile:uint in Assets.SHEET_TEST_PASSABLES) {
+				tileMap.setTileProperties(tile, FlxObject.NONE);
+			}
 			
 			var intro:IntroductionDude = new IntroductionDude();
-			intro.x = 64;
-			intro.y = 232;
-			add(intro);
+			intro.x = 7 * 32;
+			intro.y = 25 * 32;
+			mapObjects.add(intro);
 		}
 		
 		override public function create():void 
 		{
-			add(hud);
+			// Add to state
+			add(tileMap);
 			
 			FlxG.worldBounds = tileMap.getBounds();
 			FlxG.camera.follow(thePlayer);

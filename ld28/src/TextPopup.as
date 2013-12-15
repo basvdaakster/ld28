@@ -26,8 +26,8 @@ package
 		
 		public function TextPopup(text:String, callback:* = null, multilineButtons:Boolean = false) 
 		{
-			height = 20;
-			width = 400;
+			height = 0;
+			width = FlxG.width - 4;
 			
 			this.multilineButtons = multilineButtons;
 			
@@ -56,7 +56,7 @@ package
 					}
 				}
 			}
-			makeGraphic(400, height, 0xffCEB17B);
+			makeGraphic(width, height, 0xffCEB17B);
 			
 			things.add(this.text);
 			scrollFactor = new FlxPoint();

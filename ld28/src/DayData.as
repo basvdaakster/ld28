@@ -11,18 +11,19 @@ package
 	public class DayData
 	{
 		
-		public static var DAY_TIME:Number = 0;
+		public static var LIFE_TIME:Number = 2 * 60;
+		public static var CURRENT_DAY_TIME:Number = 0;
 		public static var SERIALIZED_OBJECTS:Object = { };
 		
-		public static function saveSerializedObjects(state:FlxState):void {
-			for (var i:uint = 0; i < state.members.length; i++) {
-				if (state.members[i] is ISerializable) {
-					addSerializedObject(state, state.members[i]);
+		public static function saveSerializedObjects(state:PlayState):void {
+			for (var i:uint = 0; i < state.mapObjects.members.length; i++) {
+				if (state.mapObjects.members[i] is ISerializable) {
+					addSerializedObject(state, state.mapObjects.members[i]);
 				}
 			}
 		}
 		
-		public static function loadSerializedObjects(state:FlxState):void {
+		public static function loadSerializedObjects(state:PlayState):void {
 			var objs:Array = getStatesSerObjs(state);
 			if (!objs) {
 				return;
@@ -30,9 +31,9 @@ package
 			
 			var ptr:uint = 0;
 			for each (var mem:Object in objs) {
-				while (ptr < state.members.length && !(state.members[ptr] is ISerializable)) ptr++;
-				if (ptr < state.members.length) {
-					(state.members[ptr] as ISerializable).fromObject(mem);
+				while (ptr < state.mapObjects.members.length && !(state.mapObjects.members[ptr] is ISerializable)) ptr++;
+				if (ptr < state.mapObjects.members.length) {
+					(state.mapObjects.members[ptr] as ISerializable).fromObject(mem);
 				}
 				else {
 					break;
@@ -40,7 +41,7 @@ package
 			}
 		}
 		
-		private static function getStatesSerObjs(state:FlxState):Array {
+		private static function getStatesSerObjs(state:PlayState):Array {
 			var c:String = flash.utils.getQualifiedClassName(state);
 			if (SERIALIZED_OBJECTS[c]) {
 				return SERIALIZED_OBJECTS[c];
@@ -58,7 +59,15 @@ package
 		
 		public static function reset():void {
 			SERIALIZED_OBJECTS = { };
-			DAY_TIME = 0;
+			CURRENT_DAY_TIME = LIFE_TIME;
+		}
+		
+		public static function updateDay():void {
+			CURRENT_DAY_TIME -= FlxG.elapsed;
+			if (CURRENT_DAY_TIME <= 0) {
+				CURRENT_DAY_TIME = 0;
+				FlxG.switchState(new TransitionState(new DayEndState()));
+			}
 		}
 	}
 

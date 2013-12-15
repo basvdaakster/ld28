@@ -33,17 +33,14 @@ package
 			5, 6, 6, 6, 6, 6, 6, 6, 7, 
 			8, 9, 9, 9, 9, 9, 9, 9, 10];
 		
-		public function SaloonState(spawnPoint:FlxPoint = null) {
-			super(spawnPoint ? spawnPoint : this.spawnPoint);
+		public function SaloonState(spawnPoint:FlxPoint = null, facing:uint = FlxObject.UP) {
+			super(spawnPoint ? spawnPoint : this.spawnPoint, facing);
 			
 			testMapData = Utils.convertTiledArray(testMapData);
 			
 			tileMap = new FlxTilemap();
 			tileMap.loadMap(FlxTilemap.arrayToCSV(testMapData, 9), Assets.SHEET_TEST, 32, 32);
-		}
-		
-		override public function create():void 
-		{
+			
 			// Add portal to next room
 			var portal:FlxTile = new FlxTile(tileMap, 2, 32, 32, false, 0x1111);
 			tileMap.setTileProperties(2, FlxObject.ANY, function():void {
@@ -53,22 +50,21 @@ package
 			
 			// Disable collisions for floor tile
 			tileMap.setTileProperties(5, FlxObject.NONE);
-			
+		}
+		
+		override public function create():void 
+		{
 			// Add to state
 			add(tileMap);
-			add(thePlayer);
-			add(dbgText);
-			
-			add(hud);
 			
 			FlxG.worldBounds = tileMap.getBounds();
 			FlxG.camera.follow(thePlayer);
+			
+			super.create();
 		}
 		
 		override public function update():void 
 		{
-			FlxG.collide(tileMap, thePlayer);
-			
 			super.update();
 		}
 		

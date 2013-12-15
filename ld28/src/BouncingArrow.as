@@ -20,6 +20,8 @@ package
 		
 		public function BouncingArrow(x:Number, y:Number, rotation:Number = 0) 
 		{
+			solid = false;
+			
 			baseX = x;
 			baseY = y;
 			

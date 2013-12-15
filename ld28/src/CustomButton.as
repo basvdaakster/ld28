@@ -11,7 +11,7 @@ package
 	public class CustomButton extends FlxButton 
 	{
 		
-		private var text:FlxText;
+		public var text:FlxText;
 		
 		public function CustomButton(text:String, callback:Function = null, width:Number = 300) 
 		{
@@ -33,11 +33,15 @@ package
 			};
 		}
 		
+		public function redraw():void {
+			makeGraphic(width, height, 0xff8b6147);
+		}
+		
 		override public function update():void {
 			super.update();
 			
 			text.x = x + 2;
-			text.y = y + 2;
+			text.y = y + (height - text.height) / 2;
 			
 			text.update();
 		}

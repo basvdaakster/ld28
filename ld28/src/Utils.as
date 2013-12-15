@@ -21,6 +21,12 @@ package
 			return dat;
 		}
 		
+		public static function formatTime(sec:Number):String {
+			var min:Number = Math.floor(sec / 60);
+			var s:Number = Math.floor(sec % 60);
+			return (min < 10 ? "0" + min : min) + ":" + (s < 10 ? "0" + s : s);
+		}
+		
 	}
 
 }

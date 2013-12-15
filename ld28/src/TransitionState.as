@@ -16,11 +16,11 @@ package
 	{
 		
 		private var oldBmp:BitmapData;
-		private var to:PlayState;
+		private var to:FlxState;
 		private var delay:Number = .2;
 		private var time:Number = 0;
 		
-		public function TransitionState(to:PlayState) 
+		public function TransitionState(to:FlxState) 
 		{
 			this.to = to;
 			
