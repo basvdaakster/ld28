@@ -28,7 +28,7 @@ package
 		{
 			var state:PlayState = FlxG.state is PlayState ? FlxG.state as PlayState : null;
 			if (state) {
-				if (state.thePlayer.overlaps(this)) {
+				if (this.overlaps(state.thePlayer)) {
 					callback();
 					exists = false;
 				}

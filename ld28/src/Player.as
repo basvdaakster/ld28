@@ -12,7 +12,9 @@ package
 		public static var blockInput:Boolean = false;
 		private var walkSpeed:Number = 150;
 		
-		public function Player() {
+		public function Player(x:int, y:int) {
+			super(x * 32, y * 32);
+			
 			loadGraphic(Assets.CHARACTERS, true, false, 32, 32);
 			
 			width = 12;
