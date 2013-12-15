@@ -20,16 +20,39 @@ package
 		
 		private var following:Boolean = false;
 		private var done:Boolean = false;
+		private var walkToSaloon:Boolean = false;
+		private var wander:Boolean = false;
 		
 		private var playerX:Number = 0;
 		private var playerY:Number = 0;
 		
+		private var saloonTile:FlxPoint = new FlxPoint(8 * 32, 22 * 32);
+		
 		public function IntroductionDude() 
 		{
-			makeGraphic(24, 24, 0xFFCFDF0B);
+			loadGraphic(Assets.CHARACTERS, true, false, 32, 32);
+			
+			width = 12;
+			height = 12;
+			offset.x = (32 - width) / 2;
+			offset.y = (32 - height);
+			
+			var fps:Number = 8;
+			addAnimation("idle_n", [ 11 ], fps);
+			addAnimation("idle_e", [ 12 ], fps);
+			addAnimation("idle_s", [ 10 ], fps);
+			addAnimation("idle_w", [ 13 ], fps);
+			addAnimation("walk_n", [ 21, 31 ], fps);
+			addAnimation("walk_e", [ 22, 32 ], fps);
+			addAnimation("walk_s", [ 20, 30 ], fps);
+			addAnimation("walk_w", [ 23, 33 ], fps);
+			facing = UP;
+			
+			play("idle_n");
+			
 			solid = true;
 			immovable = true;
-			Player.blockInput = true;
+			//Player.blockInput = true;
 		}
 
 		override public function update():void 
@@ -73,12 +96,75 @@ package
 					playerY = state.thePlayer.y;
 				}
 			}
+			else if (wander) {
+				if (pathSpeed == 0 || FlxU.getDistance(getMidpoint(), state.thePlayer.getMidpoint()) < 24) {
+					stopFollowingPath(true);
+					myPath = null;
+					velocity.make();
+				}
+				if (!myPath && Math.random() > .97 && FlxU.getDistance(getMidpoint(), state.thePlayer.getMidpoint()) >= 24) {
+					var pt:FlxPoint = new FlxPoint(x, y);
+					pt.x += Math.random() * 256 - 128;
+					pt.y += Math.random() * 256 - 128;
+					
+					pt.x = Math.max(0, pt.x);
+					pt.y = Math.max(0, pt.y);
+					pt.x = Math.min(state.tileMap.width, pt.x);
+					pt.y = Math.min(state.tileMap.height, pt.y);
+					
+					myPath = state.tileMapAiCollision.findPath(getMidpoint(), pt);
+					if (myPath) followPath(myPath, 75);
+				}
+			}
+			else if (walkToSaloon && pathSpeed == 0) {
+				velocity.make();
+			}
+			
+			if (Math.abs(velocity.x) > Math.abs(velocity.y)) {
+				if (velocity.x > 0) {
+					playAnim("walk_e");
+					facing = RIGHT;
+				}
+				else if (velocity.x < 0) {
+					playAnim("walk_w");
+					facing = LEFT;
+				}
+			}
+			else {
+				if (velocity.y > 0) {
+					playAnim("walk_s");
+					facing = DOWN;
+				}
+				else if (velocity.y < 0) {
+					playAnim("walk_n");
+					facing = UP;
+				}
+			}
+			
+			if (velocity.x == 0 && velocity.y == 0) {
+				switch(facing) {
+					case DOWN:
+						playAnim("idle_s");
+						break;
+					case LEFT:
+						playAnim("idle_w");
+						break;
+					case RIGHT:
+						playAnim("idle_e");
+						break;
+					default:
+						playAnim("idle_n");
+						break;
+				}
+			}
 			
 			super.update();
 		}
 		
 		private function onEndReached():void 
 		{
+			stopFollowingPath(true);
+			myPath = null;
 			done = true;
 			
 			var but1:CustomButton = new CustomButton("G WAT PRAAT JIJ G", function():void {
@@ -88,9 +174,16 @@ package
 				(FlxG.state as PlayState).mapObjects.add(arrow);
 				
 				Player.blockInput = false;
+				
+				wander = false;
+				walkToSaloon = true;
+				
+				stopFollowingPath(true);
+				myPath = state.tileMapAiCollision.findPath(getMidpoint(), saloonTile);
+				followPath(myPath);
 			}, 100);
 			
-			var p:TextPopup = new TextPopup("Go to the saloon you fucking noob", [but1], true);
+			var p:TextPopup = new TextPopup("Go to the saloon you fucking noob, follow me", [but1], true);
 			p.x = p.y = 2;
 			state.hud.add(p);
 		}
@@ -111,6 +204,13 @@ package
 			done = o.done;
 			if(done) {
 				Player.blockInput = false;
+			}
+		}
+		
+		private function playAnim(anim:String):void 
+		{
+			if (!_curAnim || _curAnim.name != anim) {
+				play(anim, true);
 			}
 		}
 		

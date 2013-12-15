@@ -16,6 +16,8 @@ package
 		public static var SERIALIZED_OBJECTS:Object = { };
 		public static var INVENTORY:Item = null;
 		
+		private static var FLAGS:Array = [];
+		
 		public static function saveSerializedObjects(state:PlayState):void {
 			for (var i:uint = 0; i < state.mapObjects.members.length; i++) {
 				if (state.mapObjects.members[i] is ISerializable) {
@@ -68,6 +70,30 @@ package
 			if (CURRENT_DAY_TIME <= 0) {
 				CURRENT_DAY_TIME = 0;
 				FlxG.switchState(new TransitionState(new DayEndState()));
+			}
+		}
+		
+		public static function hasFlag(str:String):Boolean { 
+			return FLAGS.indexOf(str) > -1;
+		}
+		
+		public static function addFlag(str:String):void {
+			FLAGS.push(str);
+		}
+		
+		public static function removeFlag(str:String):void {
+			var i:int = -1;
+			while ((i = FLAGS.indexOf(str)) > -1) {
+				FLAGS.splice(i, 1);
+			}
+		}
+		
+		public static function giveItem(it:Item):void {
+			if (!INVENTORY) {
+				INVENTORY = it;
+			}
+			else {
+				trace("INVENTORY FULL!!!!!!!!!");
 			}
 		}
 	}

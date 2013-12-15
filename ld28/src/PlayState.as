@@ -18,7 +18,11 @@ package
 		
 		public var hud:FlxGroup;
 		public var thePlayer:Player;
+		
 		public var tileMap:FlxTilemap;
+		public var tileMapTop:FlxTilemap;
+		public var tileMapAiCollision:FlxTilemap;
+		
 		protected var dbgText:FlxText;
 		private var timeText:FlxText;
 		private var itemFrame:ItemFrame;
@@ -64,11 +68,20 @@ package
 		
 		override public function create():void 
 		{
+			add(tileMap);
+			
 			add(mapObjects);
 			add(thePlayer);
+			
+			add(tileMapTop);
 			add(hud);
 			
 			DayData.loadSerializedObjects(this);
+			
+			FlxG.worldBounds = tileMap.getBounds();
+			
+			FlxG.camera.bounds = FlxG.worldBounds;
+			FlxG.camera.follow(thePlayer);
 			
 			super.create();
 		}
@@ -82,6 +95,12 @@ package
 			
 			FlxG.collide(tileMap, thePlayer);
 			FlxG.collide(mapObjects, thePlayer);
+			
+			thePlayer.x = Math.max(0, thePlayer.x);
+			thePlayer.x = Math.min(tileMap.width, thePlayer.x);
+			
+			thePlayer.y = Math.max(0, thePlayer.y);
+			thePlayer.y = Math.min(tileMap.height, thePlayer.y);
 			
 			super.update();
 		}

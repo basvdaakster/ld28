@@ -29,7 +29,10 @@ package
 				return;
 			}
 			
-			var but:CustomButton = new CustomButton("OK", function():void { p.removeFromState(); } );
+			var but:CustomButton = new CustomButton("OK", function():void { 
+				p.removeFromState(); 
+				DayData.addFlag("trough_coin");
+			} );
 			var p:TextPopup = new TextPopup("I need a coin", [ but ]);
 			(FlxG.state as PlayState).add(p);
 			p.x = p.y = 2;

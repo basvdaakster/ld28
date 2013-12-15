@@ -1,5 +1,7 @@
 package  
 {
+	import org.flixel.FlxGroup;
+	import org.flixel.FlxTilemap;
 	/**
 	 * ...
 	 * @author Bas van den Aakster
@@ -19,6 +21,33 @@ package
 			}
 			
 			return dat;
+		}
+		
+		public static function addSpecialCollisions(map:Array, w:int, group:FlxGroup):void {
+			for (var i:int = 0; i < map.length; i++) {
+				var mx:int = i % w;
+				var my:int = Math.floor(i / w);
+				var t:int = map[i];
+				var c:Collider = null;
+				
+				if (t == 109 || t == 117) {
+					c = new Collider(mx * 32 + 23, my * 32, 6, 32);
+				}
+				else if (t == 108 || t == 97) {
+					c = new Collider(mx * 32 + 6, my * 32, 6, 32);
+				}
+				else if (t == 10) {
+					c = new Collider(mx * 32 + 8, my * 32 + 8, 16, 24);
+				}
+				else if (t == 20) {
+					c = new Collider(mx * 32 + 8, my * 32, 16, 24);
+				}
+				else if (t == 40) { 
+					c = new Collider(mx * 32 + 8, my * 32, 16, 26);
+				}
+				
+				if(c) group.add(c);
+			}
 		}
 		
 		public static function formatTime(sec:Number):String {
