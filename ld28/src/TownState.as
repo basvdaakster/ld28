@@ -41,11 +41,16 @@ package
 			tileMapAiCollision.loadMap(FlxTilemap.arrayToCSV(collMapData, 20), Assets.MAIN_SHEET, 32, 32);
 			
 			// Add portals
-			var portal:Trigger = new Trigger(6 * 32, 21.75 * 32, function():void {
+			var portalSaloon:Trigger = new Trigger(6 * 32, 21.75 * 32, function():void {
 				var saloon:SaloonState = new SaloonState(new FlxPoint(8, 4), FlxObject.LEFT);
 				FlxG.switchState(new TransitionState(saloon));
 			});
-			mapObjects.add(portal);
+			mapObjects.add(portalSaloon);
+			var portalCasino:Trigger = new Trigger(6 * 32, 28.75 * 32, function():void {
+				var casino:CasinoState = new CasinoState(new FlxPoint(8, 4), FlxObject.LEFT);
+				FlxG.switchState(new TransitionState(casino));
+			});
+			mapObjects.add(portalCasino);
 			
 			var trough:Trough = new Trough(8, 19);
 			mapObjects.add(trough);
