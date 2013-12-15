@@ -170,9 +170,6 @@ package
 			var but1:CustomButton = new CustomButton("G WAT PRAAT JIJ G", function():void {
 				p.removeFromState();
 				
-				var arrow:BouncingArrow = new BouncingArrow(3 * 32, 23 * 32, 270);
-				(FlxG.state as PlayState).mapObjects.add(arrow);
-				
 				Player.blockInput = false;
 				
 				wander = false;

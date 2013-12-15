@@ -100,6 +100,7 @@ package
 				FlxG.switchState(new TransitionState(grave));
 			});
 			mapObjects.add(portalGrave);
+			
 			var portalGrave2:Trigger = new Trigger(5 * 32, 6 * 32, function():void {
 				var grave:GraveYardState = new GraveYardState(new FlxPoint(8,11), FlxObject.UP);
 				FlxG.switchState(new TransitionState(grave));
@@ -113,10 +114,10 @@ package
 				tileMap.setTileProperties(tile, FlxObject.NONE);
 			}
 			
-			//var intro:IntroductionDude = new IntroductionDude();
-			//intro.x = 10 * 32;
-			//intro.y = 29 * 32;
-			//mapObjects.add(intro);
+			var intro:IntroductionDude = new IntroductionDude();
+			intro.x = 10 * 32;
+			intro.y = 29 * 32;
+			mapObjects.add(intro);
 		}
 		
 		override public function update():void 
