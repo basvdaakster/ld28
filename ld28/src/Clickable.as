@@ -34,7 +34,7 @@ package
 		
 		override public function update():void 
 		{
-			if (anim) anim.update();
+			if (anim) anim.postUpdate();
 			super.update();
 		}
 		

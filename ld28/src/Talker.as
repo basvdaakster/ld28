@@ -1,6 +1,7 @@
 package  
 {
 	import org.flixel.FlxG;
+	import org.flixel.FlxObject;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxU;
 	/**
@@ -11,11 +12,11 @@ package
 	{
 		
 		public static const NORMAL:int = 0;
-		public static const WHITE:int = 3;
-		public static const NAKED:int = 6;
-		public static const GREEN:int = 9;
-		public static const GREEN_WHITE:int = 12;
-		public static const GREEN_NAKED:int = 15;
+		public static const WHITE:int = 4;
+		public static const NAKED:int = 8;
+		public static const GREEN:int = 12;
+		public static const GREEN_WHITE:int = 16;
+		public static const GREEN_NAKED:int = 20;
 		
 		private var text:Array = [];
 		private var index:int = 0;
@@ -52,7 +53,7 @@ package
 			
 			immovable = true;
 			
-			playAnim("walk_s");
+			playAnim("idle_s");
 			this.text = text;
 		}
 		
@@ -69,18 +70,18 @@ package
 			
 			if (Math.abs(getMidpoint().x - state.thePlayer.getMidpoint().x) > Math.abs(getMidpoint().y - state.thePlayer.getMidpoint().y)) {
 				if (state.thePlayer.getMidpoint().x > getMidpoint().x) {
-					setFacing(RIGHT);
+					setFacing(FlxObject.RIGHT);
 				}
 				else {
-					setFacing(LEFT);
+					setFacing(FlxObject.LEFT);
 				}
 			}
 			else {
 				if (state.thePlayer.getMidpoint().y > getMidpoint().y) {
-					setFacing(DOWN);
+					setFacing(FlxObject.DOWN);
 				}
 				else {
-					setFacing(UP);
+					setFacing(FlxObject.UP);
 				}
 			}
 			
