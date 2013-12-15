@@ -14,6 +14,7 @@ package
 		public static var CHIP3:Item = new Item("chip3", Assets.ITEM_CHIP3);
 		public static var COIN_DIE:Item = new Item("coin_die", Assets.ITEM_COIN_DIE);
 		public static var CHIP_DIE:Item = new Item("chip_die", Assets.ITEM_CHIP_DIE);
+		public static var SHOVEL:Item = new Item("shovel", Assets.ITEM_SHOVEL);
 		public static var GROG:Item = new Item("grog", Assets.ITEM_GROG);
 		
 		public var name:String;

@@ -7,7 +7,7 @@ package
 	public class Talker extends Clickable 
 	{
 		
-		public function Talker() 
+		public function Talker(text:Array) 
 		{
 			
 		}
