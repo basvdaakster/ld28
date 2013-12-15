@@ -119,7 +119,7 @@ package
 			intro.y = 29 * 32;
 			mapObjects.add(intro);
 			
-			var test:Trader = new Trader(11, 30, Trader.WHITE, Item.COIN, Item.SHOVEL, "");
+			var test:Trader = new Trader(11, 30, Trader.WHITE, Item.COIN, Item.SHOVEL, "","");
 			mapObjects.add(test);
 		}
 		
