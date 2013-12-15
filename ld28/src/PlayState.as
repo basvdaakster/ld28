@@ -71,7 +71,8 @@ package
 			
 			add(mapObjects);
 			add(colliders);
-			add(thePlayer);
+			mapObjects.add(thePlayer);
+			//add(thePlayer);
 			
 			add(tileMapTop);
 			add(hud);
@@ -86,6 +87,7 @@ package
 			super.create();
 		}
 		
+		var cheatIndex:int = 0;
 		override public function update():void 
 		{
 			dbgText.text = "Player Pos: (" + Math.round(thePlayer.x / 1) + ", " + Math.round(thePlayer.y / 1) + ")\n";
@@ -97,11 +99,21 @@ package
 			FlxG.collide(mapObjects, thePlayer);
 			FlxG.collide(colliders, thePlayer);
 			
+			mapObjects.sort("y", ASCENDING);
+			
 			thePlayer.x = Math.max(0, thePlayer.x);
 			thePlayer.x = Math.min(tileMap.width, thePlayer.x);
 			
 			thePlayer.y = Math.max(0, thePlayer.y);
 			thePlayer.y = Math.min(tileMap.height, thePlayer.y);
+			
+			if (FlxG.keys.justPressed("ONE")) {
+				DayData.INVENTORY = Item.allItems[cheatIndex];
+				cheatIndex++;
+				if (cheatIndex >= Item.allItems.length) {
+					cheatIndex = 0;
+				}
+			}
 			
 			super.update();
 		}

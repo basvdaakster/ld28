@@ -189,7 +189,10 @@ package
 			var o:Object = {
 				x: x,
 				y: y,
-				done: done
+				done: done,
+				following: following,
+				walkToSaloon: walkToSaloon,
+				myPath: myPath
 			};
 			
 			return o;
@@ -199,6 +202,9 @@ package
 			x = o.x;
 			y = o.y;
 			done = o.done;
+			following = o.following;
+			walkToSaloon = o.walkToSaloon;
+			myPath = o.myPath;
 			if(done) {
 				Player.blockInput = false;
 			}

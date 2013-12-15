@@ -18,10 +18,7 @@ package
 		
 		public function ItemFrame() 
 		{
-			scale = new FlxPoint(2, 2);
 			loadGraphic(Assets.ITEMFRAME);
-			width *= 2;
-			height *= 2;
 			centerOffsets(true);
 			scrollFactor = new FlxPoint();
 		}
@@ -36,10 +33,7 @@ package
 			_item = value;
 			itemSpr = new FlxSprite();
 			itemSpr.scrollFactor = new FlxPoint();
-			itemSpr.scale = new FlxPoint(2,2);
 			itemSpr.loadGraphic(_item.img);
-			itemSpr.width = 64;
-			itemSpr.height = 64;
 			itemSpr.centerOffsets(true);
 			itemSpr.x = x;
 			itemSpr.y = y;
