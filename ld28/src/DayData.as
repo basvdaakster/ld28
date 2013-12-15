@@ -19,9 +19,11 @@ package
 		private static var FLAGS:Array = [];
 		
 		public static function saveSerializedObjects(state:PlayState):void {
+			SERIALIZED_OBJECTS[flash.utils.getQualifiedClassName(state)] = [];
 			for (var i:uint = 0; i < state.mapObjects.members.length; i++) {
 				if (state.mapObjects.members[i] is ISerializable) {
-					addSerializedObject(state, state.mapObjects.members[i]);
+					var mem:ISerializable = state.mapObjects.members[i];
+					addSerializedObject(state, mem);
 				}
 			}
 		}
@@ -37,6 +39,7 @@ package
 				while (ptr < state.mapObjects.members.length && !(state.mapObjects.members[ptr] is ISerializable)) ptr++;
 				if (ptr < state.mapObjects.members.length) {
 					(state.mapObjects.members[ptr] as ISerializable).fromObject(mem);
+					ptr++;
 				}
 				else {
 					break;

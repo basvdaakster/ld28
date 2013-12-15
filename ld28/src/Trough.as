@@ -43,8 +43,6 @@ package
 				hasCoin = true;
 				DayData.removeFlag("trough_coin");
 			}
-			
-			trace("load");
 		}
 		
 	}
