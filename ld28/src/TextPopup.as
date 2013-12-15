@@ -26,6 +26,8 @@ package
 		
 		public function TextPopup(text:String, callback:* = null, multilineButtons:Boolean = false) 
 		{
+			(FlxG.state as PlayState).hasPopup = true;
+			
 			height = 20;
 			width = FlxG.width - 4;
 			
@@ -71,6 +73,8 @@ package
 				b.destroy();
 			}
 			buttons = null;
+			
+			(FlxG.state as PlayState).hasPopup = false;
 			FlxG.state.remove(this, true);
 		}
 		

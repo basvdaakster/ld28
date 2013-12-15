@@ -8,7 +8,7 @@ package
 	 * ...
 	 * @author Bas van den Aakster
 	 */
-	public class Talker extends Clickable 
+	public class Trader extends Clickable 
 	{
 		
 		public static const NORMAL:int = 0;
@@ -24,9 +24,19 @@ package
 		private var but:CustomButton = null;
 		private var talking:Boolean = false;
 		
-		public function Talker(x:int, y:int, text:Array, type:int = WHITE) 
+		private var tradeText:String;
+		private var noInItemText:String;
+		private var afterTradeText:String;
+		
+		private var hasTraded:Boolean = false;
+		
+		public function Trader(x:int, y:int, type:int, inItem:Item, outItem:Item, tradeText:String, noInItemText:String, afterTradeText:String) 
 		{			
 			super();
+			
+			this.tradeText = tradeText;
+			this.noInItemText = noInItemText;
+			this.afterTradeText = afterTradeText;
 			
 			makeGraphic(32, 32, 0);
 			
@@ -54,7 +64,6 @@ package
 			immovable = true;
 			
 			playAnim("idle_s");
-			this.text = text;
 		}
 		
 		override public function onClick():void 

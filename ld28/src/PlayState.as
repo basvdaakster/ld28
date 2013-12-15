@@ -31,7 +31,7 @@ package
 		public var colliders:FlxGroup;
 		
 		protected var spawnPoint:FlxPoint = null;
-		
+		public var hasPopup:Boolean = false;
 		
 		public function PlayState(spawnPoint:FlxPoint, facing:uint) {
 			thePlayer = new Player(spawnPoint.x, spawnPoint.y);

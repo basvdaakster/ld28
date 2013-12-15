@@ -38,6 +38,9 @@ package
 		[Embed(source="../assets/Grog.png")]
 		public static var ITEM_GROG:Class;
 		
+		[Embed(source="../assets/Diamond.png")]
+		public static var ITEM_DIAMOND:Class;
+		
 		[Embed(source="../assets/cursor.png")]
 		public static var CURSOR_POINTER:Class;
 		

@@ -16,6 +16,7 @@ package
 		public static var CHIP_DIE:Item = new Item("chip_die", Assets.ITEM_CHIP_DIE);
 		public static var SHOVEL:Item = new Item("shovel", Assets.ITEM_SHOVEL);
 		public static var GROG:Item = new Item("grog", Assets.ITEM_GROG);
+		public static var DIAMOND:Item = new Item("diamond", Assets.ITEM_DIAMOND);
 		
 		public var name:String;
 		public var img:Class;
