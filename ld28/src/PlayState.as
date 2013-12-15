@@ -28,23 +28,22 @@ package
 		private var itemFrame:ItemFrame;
 		
 		public var mapObjects:FlxGroup;
+		public var colliders:FlxGroup;
 		
 		protected var spawnPoint:FlxPoint = null;
 		
 		
-		public function PlayState(spawnPoint:FlxPoint = null, facing:uint = FlxObject.UP) {
-			this.spawnPoint = spawnPoint;
-			
-			thePlayer = new Player();
+		public function PlayState(spawnPoint:FlxPoint, facing:uint) {
+			thePlayer = new Player(spawnPoint.x, spawnPoint.y);
 			thePlayer.setFacing(facing);
 			
-			if (spawnPoint) {
-				thePlayer.x = spawnPoint.x * 32 + 4;
-				thePlayer.y = spawnPoint.y * 32 + 4;
-			}
+			this.spawnPoint = new FlxPoint(spawnPoint.x, spawnPoint.y);
+			thePlayer.x = spawnPoint.x * 32 + (32 - thePlayer.width) / 2;
+			thePlayer.y = spawnPoint.y * 32 + (32 - thePlayer.height) / 2;
 			
 			hud = new FlxGroup();
 			mapObjects = new FlxGroup();
+			colliders = new FlxGroup();
 			
 			// dbg
 			dbgText = new FlxText(10, 10, FlxG.width - 10, "");
@@ -71,6 +70,7 @@ package
 			add(tileMap);
 			
 			add(mapObjects);
+			add(colliders);
 			add(thePlayer);
 			
 			add(tileMapTop);
@@ -88,13 +88,14 @@ package
 		
 		override public function update():void 
 		{
-			dbgText.text = "Player Pos: (" + Math.round(thePlayer.x) + ", " + Math.round(thePlayer.y) + ")\n";
+			dbgText.text = "Player Pos: (" + Math.round(thePlayer.x / 1) + ", " + Math.round(thePlayer.y / 1) + ")\n";
 			timeText.text = Utils.formatTime(DayData.CURRENT_DAY_TIME);
 			
 			DayData.updateDay();
 			
 			FlxG.collide(tileMap, thePlayer);
 			FlxG.collide(mapObjects, thePlayer);
+			FlxG.collide(colliders, thePlayer);
 			
 			thePlayer.x = Math.max(0, thePlayer.x);
 			thePlayer.x = Math.min(tileMap.width, thePlayer.x);
