@@ -15,7 +15,7 @@ package
 			
 			this.x = x * 32 + 8;
 			this.y = y * 32 + 7;
-			makeGraphic(15, 48, 0xee7A96DE);
+			makeGraphic(15, 48, 0);
 		}
 		
 		override public function onClick():void 
