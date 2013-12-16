@@ -48,7 +48,10 @@ package
 		public static var CURSOR_HAND:Class;
 		
 		[Embed(source = "../assets/arrow.png")]
-		public static var BOUNCING_ARROW:Class;		
+		public static var BOUNCING_ARROW:Class;	
+		
+		[Embed(source = "../assets/GraveFull.png")]
+		public static var GRAVE:Class;		
 		
 		[Embed(source = "../assets/characters.png")]
 		public static var CHARACTERS:Class;		

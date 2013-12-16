@@ -74,6 +74,37 @@ package
 			});
 			mapObjects.add(portal8);
 			
+			// GRAVES			
+			var dungpile:Grave = new Grave("Here lies Dr. Dungpile. Loved by all. 1988 to 2003", null, "You find nothing...");
+			dungpile.x = 7 * 32;
+			dungpile.y = 7 * 32;
+			mapObjects.add(dungpile);
+			
+			var johnny:Grave = new Grave("Here lies Johnny Bigwings, no one really knew him. 13-4-2002 to 14-4-2002", null, "You find nothing...");
+			johnny.x = 9 * 32;
+			johnny.y = 7 * 32;
+			mapObjects.add(johnny);
+			
+			var licky:Grave = new Grave("Here lies Licky Lullaby, one hell of a bedtime story teller. He died because of the monsters under his bed. 2004 to 2008", null, "You find nothing...");
+			licky.x = 11 * 32;
+			licky.y = 7 * 32;
+			mapObjects.add(licky);
+			
+			var crease:Grave = new Grave("Here lies Crease Fold. His riches got the best of him in the end. 2009 to 2013", Item.COIN_DIE, "You find a coin and a die!");
+			crease.x = 7 * 32;
+			crease.y = 9 * 32;
+			mapObjects.add(crease);
+			
+			var your:Grave = new Grave("Your grave", null, "You find nothing...");
+			your.x = 9 * 32;
+			your.y = 9 * 32;
+			mapObjects.add(your);
+			
+			var rent:Grave = new Grave("Room for rent", null, "You find nothing...");
+			rent.x = 11 * 32;
+			rent.y = 9 * 32;
+			mapObjects.add(rent);
+			
 			
 			// Disable collisions for floor tile
 			for each(var tile:uint in Assets.MAIN_SHEET_PASSABLES) {
