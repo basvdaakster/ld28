@@ -64,26 +64,6 @@ package
 			this.text = text;
 		}
 		
-		override public function pixelsOverlapPoint(Point:FlxPoint, Mask:uint = 0xFF, Camera:FlxCamera = null):Boolean 
-		{
-			return anim.pixelsOverlapPoint(Point, Mask, Camera);
-		}
-		
-		override public function overlapsPoint(Point:FlxPoint, InScreenSpace:Boolean = false, Camera:FlxCamera = null):Boolean 
-		{
-			return anim.overlapsPoint(Point, InScreenSpace, Camera);
-		}
-		
-		override public function overlaps(ObjectOrGroup:FlxBasic, InScreenSpace:Boolean = false, Camera:FlxCamera = null):Boolean
-		{trace(123);
-			return anim.overlaps(ObjectOrGroup, InScreenSpace, Camera);
-		}
-		
-		override public function overlapsAt(X:Number, Y:Number, ObjectOrGroup:FlxBasic, InScreenSpace:Boolean = false, Camera:FlxCamera = null):Boolean 
-		{
-			return anim.overlapsAt(X, Y, ObjectOrGroup, InScreenSpace, Camera);
-		}
-		
 		override public function onClick():void
 		{
 			var state:PlayState = (FlxG.state as PlayState);
