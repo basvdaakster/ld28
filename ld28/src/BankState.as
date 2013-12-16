@@ -43,9 +43,19 @@ package
 				tileMap.setTileProperties(tile, FlxObject.NONE);
 			}
 			
+			var talkerOne:Talker = new Talker(1, 1, ["Want to make a deposit? No we already have a diamond in that safe. Annything else?"], Talker.NAKED );
+			talkerOne.setFacing(FlxObject.DOWN);
+			var talkerTwo:Talker = new Talker(2, 1, ["My collegues swiched places today. Helps keep them exited about their jobs!"], Talker.NAKED);
+			talkerTwo.setFacing(FlxObject.DOWN);
+			var talkerThree:Talker = new Talker(3, 1, ["Want to make a withdrawl? No you can't withdrawl from this safe. It has a diamond in it you know."], Talker.GREEN_NAKED);
+			talkerThree.setFacing(FlxObject.DOWN);
+			
 			var bartender:Bartender = new Bartender();
 			bartender.x = bartender.y = 32;
-			mapObjects.add(bartender);
+			//mapObjects.add(bartender);
+			mapObjects.add(talkerOne);
+			mapObjects.add(talkerTwo);
+			mapObjects.add(talkerThree);
 		}
 		
 	}
