@@ -35,7 +35,7 @@ package
 			add(infoTxt);
 			FlxG.mouse.show();
 			startBtn = new FlxButton(270, 120, "Start your day!", function():void {
-				FlxG.playMusic(Assets.MUSIC, 0.2);
+				FlxG.playMusic(Assets.MUSIC, 1);
 				FlxG.play(Assets.SELECT);
 				FlxG.switchState(new TownState());
 			});
