@@ -43,9 +43,14 @@ package
 				tileMap.setTileProperties(tile, FlxObject.NONE);
 			}
 			
-			var bartender:Bartender = new Bartender();
-			bartender.x = bartender.y = 32;
-			mapObjects.add(bartender);
+			var talkerOne:Talker = new Talker(3,3, ["Praise the lord! He will forgive us all!"], Talker.NAKED );
+			talkerOne.setFacing(FlxObject.DOWN);
+			mapObjects.add(talkerOne);
+			
+			var p:Pastor = new Pastor();
+			p.x = 8 * 32;
+			p.y = 1 * 32;
+			mapObjects.add(p);
 		}
 		
 	}

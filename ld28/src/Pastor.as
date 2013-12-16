@@ -17,7 +17,7 @@ package
 			
 			anim = new FlxSprite();
 			anim.loadGraphic(Assets.CHARACTERS, true, false, 32, 32);
-			anim.addAnimation("idle", [1]);
+			anim.addAnimation("idle", [14]);
 			anim.play("idle");
 			
 			immovable = true;
