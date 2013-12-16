@@ -105,6 +105,12 @@ package
 			rent.y = 9 * 32;
 			mapObjects.add(rent);
 			
+			var shovel:Trigger = new Trigger(9 * 32, 3 * 32, function():void {
+				DayData.INVENTORY = Item.SHOVEL;
+				shovel.exists = false;
+			});
+			shovel.loadGraphic(Assets.ITEM_SHOVEL);
+			mapObjects.add(shovel);
 			
 			// Disable collisions for floor tile
 			for each(var tile:uint in Assets.MAIN_SHEET_PASSABLES) {

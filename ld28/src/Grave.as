@@ -63,11 +63,11 @@ package
 			DayData.INVENTORY = null;
 			if (itemOnDig) {
 				DayData.INVENTORY = itemOnDig;
-				if (textOnDig) {
-					var p:TextPopup = new TextPopup(textOnDig, function():void { p.removeFromState() });
-					(FlxG.state as PlayState).add(p);
-					p.x = p.y = 2;
-				}
+			}
+			if (textOnDig) {
+				var p:TextPopup = new TextPopup(textOnDig, function():void { p.removeFromState() });
+				(FlxG.state as PlayState).add(p);
+				p.x = p.y = 2;
 			}
 		}
 		
