@@ -51,16 +51,20 @@ package
 			talkerTwo.setFacing(FlxObject.LEFT);
 			var talkerThree:Talker = new Talker(1, 1, ["Wow there you stinking old weasle one day fly. Just because you got one day to live doesn't mean I'll let you in with one of my damsels for free!? That will be 3 coins. Oh you don't have three coins? Why don't you try your luck at the casino across the street! Now off with you!"], Talker.GREEN_WHITE);
 			talkerThree.setFacing(FlxObject.DOWN);
-			var talkerOneB:Talker = new Talker(8, 1, ["Im glad you only live one day. They should of asked you to pay double for that horible performance. Get out of my sight!"], Talker.NAKED);
-			talkerOneB.setFacing(FlxObject.LEFT);
-			var talkerTwoB:Talker = new Talker(8, 4, ["Well there sailor! You made my wings tingle!"], Talker.NAKED);
-			talkerTwoB.setFacing(FlxObject.LEFT);
+			var whoreOne:Whore = new Whore(8, 1, Trader.NAKED, Item.COIN3, function():void {
+				DayData.INVENTORY = null;
+			}, "Well wasn't that amazing. Glad you did something with your life huh?", "No money, no fun, I need about 3 coins", "Bye sweetheart!");
+			whoreOne.setFacing(FlxObject.LEFT);
+			var whoreTwo:Whore = new Whore(8, 4, Trader.NAKED, Item.COIN3, function():void {
+				DayData.INVENTORY = null;
+			}, "Im glad you only live one day. They should of asked you to pay double for that horible performance. Get out of my sight!", "No money, no fun, I need about 3 coins", "Bye sweetheart!");
+			whoreTwo.setFacing(FlxObject.LEFT);
 			//var talkerThreeB:Talker = new Talker(8, 7, [""], Talker.NAKED);
-			var talkerThreeB:Trader = new Trader(8, 7, Trader.NAKED, Item.COIN3, function():void {
+			var whoreThree:Whore = new Whore(8, 7, Trader.NAKED, Item.COIN3, function():void {
 				DayData.addFlag("password");
 				DayData.INVENTORY = null;
 			}, "Oh the password for the mayors house? Well the guards are a locals here. The password is Venus. Don't tell them I told you so! Or I will kill you!.. Oh you will be dead by tomorow? Hmm... nevermind then.", "No money, no fun, I need about 3 coins", "Bye sweetheart!");
-			talkerThreeB.setFacing(FlxObject.LEFT);
+			whoreThree.setFacing(FlxObject.LEFT);
 			
 			var bartender:Bartender = new Bartender();
 			bartender.x = bartender.y = 32;
@@ -68,9 +72,9 @@ package
 			mapObjects.add(talkerOne);
 			mapObjects.add(talkerTwo);
 			mapObjects.add(talkerThree);
-			mapObjects.add(talkerOneB);
-			mapObjects.add(talkerTwoB);
-			mapObjects.add(talkerThreeB);
+			mapObjects.add(whoreOne);
+			mapObjects.add(whoreTwo);
+			mapObjects.add(whoreThree);
 		}
 		override public function create():void 
 		{
