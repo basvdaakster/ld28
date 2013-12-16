@@ -8,7 +8,7 @@ package
 	 * ...
 	 * @author Bas van den Aakster
 	 */
-	public class Trader extends Clickable 
+	public class Trader extends Clickable implements ISerializable
 	{
 		
 		public static const NORMAL:int = 0;
@@ -162,6 +162,18 @@ package
 			if (!_curAnim || _curAnim.name != a) {
 				anim.play(a, true);
 			}
+		}
+		
+		public function toObject():Object {
+			var o:Object = {
+				hasTraded: hasTraded
+			};
+			
+			return o;
+		}
+		
+		public function fromObject(o:Object):void {
+			hasTraded = o.hasTraded;
 		}
 		
 	}
