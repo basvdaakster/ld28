@@ -18,14 +18,14 @@ package
 		private var testMapData:Array = [2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 5, 6, 6, 66, 6, 6, 66, 6, 6, 7, 67, 68, 68, 68, 69, 70, 6, 6, 6, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 45, 5, 6, 6, 6, 6, 6, 6, 66, 6, 55, 5, 6, 77, 6, 6, 6, 78, 6, 6, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 5, 6, 6, 78, 6, 6, 6, 77, 6, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8, 9, 9, 9, 9, 9, 9, 9, 9, 10];
 		
 		public function SaloonState(spawnPoint:FlxPoint = null, facing:uint = FlxObject.UP) {
-			
-			
 			super(spawnPoint ? spawnPoint : new FlxPoint(8, 4), facing);
 			
 			testMapData = Utils.convertTiledArray(testMapData);
 			
 			tileMap = new FlxTilemap();
 			tileMap.loadMap(FlxTilemap.arrayToCSV(testMapData, 10), Assets.MAIN_SHEET, 32, 32);
+			
+			Utils.addSpecialCollisions(testMapData, 10, mapObjects);
 			
 			// Add portal to next room
 			var portal:Trigger = new Trigger(9 * 32 + 8, 4 * 32, function():void {

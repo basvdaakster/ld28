@@ -26,7 +26,9 @@ package
   {
    add(infoTxt);
    FlxG.mouse.show();
+			
    backBtn = new FlxButton(320, 160, "Back", function():void {
+	FlxG.play(Assets.SELECT);
     FlxG.switchState(new MenuState());
    });
    backBtn.x = 160 - backBtn.width / 2;

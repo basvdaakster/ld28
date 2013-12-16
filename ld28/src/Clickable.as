@@ -2,6 +2,7 @@ package
 {
 	import org.flixel.FlxButton;
 	import org.flixel.FlxG;
+	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxU;
 	/**
@@ -13,6 +14,7 @@ package
 		
 		public static var RANGE:Number = 64;
 		protected var anim:FlxSprite;
+		protected var animOff:FlxPoint = new FlxPoint();
 		
 		public function Clickable() 
 		{
@@ -34,7 +36,7 @@ package
 		
 		override public function update():void 
 		{
-			if (anim) anim.postUpdate();
+			if (anim) anim.update();
 			super.update();
 		}
 		
@@ -42,8 +44,8 @@ package
 		{
 			super.draw();
 			if(anim) {
-				anim.x = x;
-				anim.y = y;
+				anim.x = x + animOff.x;
+				anim.y = y + animOff.y;
 				anim.draw();
 			}
 		}

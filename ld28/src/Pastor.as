@@ -33,6 +33,8 @@ package
 				onWrongAnswer();
 				return;
 			}
+
+			FlxG.play(Assets.SPEAK,1,false,true);
 			
 			var buta:CustomButton = new CustomButton("I told my friends to look for the blue light\nNow they are gone.", function():void { 
 				p.removeFromState();
@@ -59,6 +61,8 @@ package
 		}
 		
 		private function onWrongAnswer():void {
+
+			FlxG.play(Assets.SPEAK,1,false,true);
 			var p:TextPopup = new TextPopup("Well all your sins are forgiven. Go my son and enjoy your life... although a bit short.", function():void {
 				p.removeFromState();
 			});
@@ -68,6 +72,8 @@ package
 		}
 		
 		private function onRightAnswer():void {
+
+			FlxG.play(Assets.SPEAK,1,false,true);
 			var p:TextPopup = new TextPopup("Ahh well you have to learn to be an honest gambler. Not the kind of “honest” my friend was. He won a bit to much for his liking and got lynched for it. We burried him in the graveyard next to the town hall. Don't let that happen to you.. Oh your dead by the morning...", function():void {
 				p.removeFromState();
 			});
