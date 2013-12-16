@@ -1,5 +1,6 @@
 package  
 {
+	import flash.media.Sound;
 	/**
 	 * ...
 	 * @author Bas van den Aakster
@@ -54,7 +55,19 @@ package
 		public static var GRAVE:Class;		
 		
 		[Embed(source = "../assets/characters.png")]
-		public static var CHARACTERS:Class;		
+		public static var CHARACTERS:Class;	
+		
+		[Embed(source = "../assets/sound/fly.mp3")]
+		public static var MUSIC:Class;
+		
+		[Embed(source = "../assets/sound/speak to fly.wav", mimeType = "application/octet-stream")]
+		public static var SPEAK:Class;
+		
+		[Embed(source="../assets/sound/NoCancel.wav", mimeType="application/octet-stream")]
+		public static var CANCEL:Class;
+		
+		[Embed(source = "../assets/sound/flydoor.mp3")]
+		public static var DOOR:Class;
 	}
 
 }

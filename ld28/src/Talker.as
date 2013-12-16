@@ -63,7 +63,7 @@ package
 			if (state.hasPopup || talking || FlxU.getDistance(state.thePlayer.getMidpoint(), this.getMidpoint()) > Clickable.RANGE) {
 				return;
 			}
-			
+
 			talking = true;
 			
 			talk();

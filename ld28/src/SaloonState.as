@@ -18,6 +18,8 @@ package
 		private var testMapData:Array = [2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 5, 6, 6, 66, 6, 6, 66, 6, 6, 7, 67, 68, 68, 68, 69, 70, 6, 6, 6, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 45, 5, 6, 6, 6, 6, 6, 6, 66, 6, 55, 5, 6, 77, 6, 6, 6, 78, 6, 6, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 5, 6, 6, 78, 6, 6, 6, 77, 6, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8, 9, 9, 9, 9, 9, 9, 9, 9, 10];
 		
 		public function SaloonState(spawnPoint:FlxPoint = null, facing:uint = FlxObject.UP) {
+			
+			
 			super(spawnPoint ? spawnPoint : new FlxPoint(8, 4), facing);
 			
 			testMapData = Utils.convertTiledArray(testMapData);
@@ -49,6 +51,7 @@ package
 			mapObjects.add(talkerOne);
 			mapObjects.add(talkerTwo);
 			mapObjects.add(talkerThree);
+			FlxG.play(Assets.DOOR);
 		}
 		
 	}
