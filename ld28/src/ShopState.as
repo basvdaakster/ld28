@@ -37,9 +37,8 @@ package
 				tileMap.setTileProperties(tile, FlxObject.NONE);
 			}
 			
-			var bartender:Bartender = new Bartender();
-			bartender.x = bartender.y = 32;
-			mapObjects.add(bartender);
+			var storekeeper:Trader = new Trader(1, 1, Trader.NAKED, Item.COIN, Item.GROG, "Oh the guard send you for some grog. That be one coin please.", "I don't deal with strangers! Be gone.", "Tell that old chum I said hi.");
+			mapObjects.add(storekeeper);
 		}
 		
 	}
