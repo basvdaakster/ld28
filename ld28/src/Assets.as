@@ -60,7 +60,7 @@ package
 		[Embed(source = "../assets/characters.png")]
 		public static var CHARACTERS:Class;	
 		
-		[Embed(source = "../assets/sound/fly.mp3")]
+		[Embed(source = "../assets/sound/fly.mp3", mimeType="audio/mpeg")]
 		public static var MUSIC:Class;
 		
 		[Embed(source = "../assets/sound/Select.mp3")]
