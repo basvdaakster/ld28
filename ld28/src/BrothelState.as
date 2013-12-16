@@ -59,7 +59,7 @@ package
 			var talkerThreeB:Trader = new Trader(8, 7, Trader.NAKED, Item.COIN3, function():void {
 				DayData.addFlag("password");
 				DayData.INVENTORY = null;
-			}, "Oh the password for the mayors house? Well the guards are a locals here. The password is Venus. Don't tell them I told you so! Or I will kill you!.. Oh you will be dead by tomorow? Hmm... nevermind then.", "No money, no fun", "Bye sweetheart");
+			}, "Oh the password for the mayors house? Well the guards are a locals here. The password is Venus. Don't tell them I told you so! Or I will kill you!.. Oh you will be dead by tomorow? Hmm... nevermind then.", "No money, no fun, I need about 3 coins", "Bye sweetheart!");
 			talkerThreeB.setFacing(FlxObject.LEFT);
 			
 			var bartender:Bartender = new Bartender();
