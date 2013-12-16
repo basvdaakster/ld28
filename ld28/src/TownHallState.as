@@ -16,11 +16,17 @@ package
 	{
 		
 		private var hallMap:Array = [2, 3, 3, 3, 3, 4, 2, 3, 3, 4, 5, 6, 6, 6, 6, 7, 5, 6, 6, 7, 86, 87, 88, 88, 87, 89, 5, 6, 6, 7, 5, 6, 6, 6, 6, 15, 3, 71, 3, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 5, 6, 77, 6, 6, 6, 6, 77, 6, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 5, 6, 77, 6, 6, 93, 6, 77, 6, 7, 8, 9, 9, 9, 9, 9, 9, 9, 9, 10];
+		private var hallTopMap:Array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+		
 		
 		public function TownHallState(spawnPoint:FlxPoint = null, facing:uint = FlxObject.UP) {
 			super(spawnPoint ? spawnPoint : this.spawnPoint, facing);
 			
 			hallMap = Utils.convertTiledArray(hallMap);
+			hallTopMap = Utils.convertTiledArray(hallTopMap);
+			
+			tileMapTop = new FlxTilemap();
+			tileMapTop.loadMap(FlxTilemap.arrayToCSV(hallTopMap, 10), Assets.MAIN_SHEET, 32, 32);
 			
 			tileMap = new FlxTilemap();
 			tileMap.loadMap(FlxTilemap.arrayToCSV(hallMap, 10), Assets.MAIN_SHEET, 32, 32);
