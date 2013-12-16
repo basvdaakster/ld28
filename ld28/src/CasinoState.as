@@ -45,15 +45,15 @@ package
 			mapObjects.add(talkerTwo);
 			mapObjects.add(talkerThree);
 			
-			var traderOne:Trader = new Trader(4, 1, Trader.WHITE, Item.COIN, Item.CHIP, "Any coins that you want to trade for chips?", "You don't have anny coins to trade for chips. We don't do charity!", "Have fun gambling your life away.");
+			var traderOne:Trader = new Trader(4, 1, Trader.WHITE, Item.COIN, Item.CHIP, "Any coins that you want to trade for chips?\n\n"+"Have fun gambling your life away.", "You don't have anny coins to trade for chips. We don't do charity!", "Have fun gambling your life away.");
 			mapObjects.add(traderOne);
-			var traderTwo:Trader = new Trader(6, 1, Trader.GREEN_WHITE, Item.CHIP3, Item.COIN3, "Any chips that you want to trade for coins?", "You don't have anny chips to trade sir", "Wow arn't you the lucky one geting all that cash.");
+			var traderTwo:Trader = new Trader(6, 1, Trader.GREEN_WHITE, Item.CHIP3, Item.COIN3, "Any chips that you want to trade for coins?\n\n"+"Wow arn't you the lucky one geting all that cash.", "You don't have any chips to trade sir", "Wow arn't you the lucky one geting all that cash.");
 			mapObjects.add(traderTwo);
-			var traderThree:Trader = new Trader(2, 1, Trader.NORMAL , Item.COIN_DIE , Item.CHIP_DIE, "Any special trades you want to do?" , "You have nothing special to trade me", "Enjoy your \"Luck\" sir.");
+			var traderThree:Trader = new Trader(2, 1, Trader.NORMAL , Item.COIN_DIE , Item.CHIP_DIE, "Any special trades you want to do?\n\n" + "Enjoy your \"Luck\" sir." , "You have nothing special to trade me", "Enjoy your \"Luck\" sir.");
 			mapObjects.add(traderThree);
 			
-			var dealerOne:Trader = new Trader(2, 4, Trader.GREEN_NAKED , Item.CHIP_DIE, Item.CHIP3, "Welcome sir. Do you wish to play some craps? We only take special bets today.", "This is the craps table. We only take special bets today. You have nothing special to bet with.", "You win the house! Congratulations!");
-			var dealerTwo:Trader = new Trader(6, 4, Trader.NAKED, Item.CHIP, null, "Welcome sir, Do you wish to play some Poker? Minimum buy in is one chip", "This is the Poker table. The minimum buy in is one chip... wich you don't have you poor sod.", "Full house for the house sir. You lose");
+			var dealerOne:Trader = new Trader(2, 4, Trader.GREEN_NAKED , Item.CHIP_DIE, Item.CHIP3, "Welcome sir. Do you wish to play some craps? We only take special bets today.\n\n" + "You win the house! Congratulations!", "This is the craps table. We only take special bets today. You have nothing special to bet with.", "You win the house! Congratulations!");
+			var dealerTwo:Trader = new Trader(6, 4, Trader.NAKED, Item.CHIP, null, "Welcome sir, Do you wish to play some Poker? Minimum buy in is one chip\n\n" + "Full house for the house sir. You lose", "This is the Poker table. The minimum buy in is one chip... wich you don't have you poor sod.", "Full house for the house sir. You lose");
 			mapObjects.add(dealerOne);
 			mapObjects.add(dealerTwo);
 		}
