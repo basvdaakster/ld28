@@ -7,18 +7,8 @@ package
 	 * ...
 	 * @author Bas van den Aakster
 	 */
-	public class Pastor extends Clickable
+	public class Pastor extends Clickable implements ISerializable
 	{
-		/*So you want to confess son? Whats on your mind?
-
-A1: I told my friends to look for the blue light. Now they are gone
-A2: I cheated whilst gambling.
-A3: I once pulled the wings of a fly.
-
-Well all your sins are forgiven. Go my son and enjoy your life... although abit short.
-
-Ahh well you have to learn to be an honest gambler. Not the kind of “honest” my friend was. He won abit to much for his liking and got lynched for it. We burried him in the graveyard. Don't let that happen to you.. Oh your dead by the morning...*/
-		
 		private var hasForgiven:Boolean = false;
 
 		public function Pastor() 
@@ -82,6 +72,18 @@ Ahh well you have to learn to be an honest gambler. Not the kind of “honest”
 			(FlxG.state as PlayState).add(p);
 			p.x = p.y = 2;
 			hasForgiven = true;
+		}
+		
+		public function toObject():Object {
+			var o:Object = {
+				hasForgiven: hasForgiven
+			};
+			
+			return o;
+		}
+		
+		public function fromObject(o:Object):void {
+			hasForgiven = o.hasForgiven;
 		}
 		
 	}
