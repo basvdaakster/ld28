@@ -33,7 +33,7 @@ package
 				
 				txt = afterTradeText;
 			}
-			else if (DayData.INVENTORY != inItem ||!DayData.hasFlag("WhoreTalked")) {
+			else if (DayData.INVENTORY != inItem || DayData.hasFlag("WhoreTalked")) {
 				txt = noInItemText;
 			}
 			else {
