@@ -43,9 +43,11 @@ package
 				tileMap.setTileProperties(tile, FlxObject.NONE);
 			}
 			
-			var bartender:Bartender = new Bartender();
-			bartender.x = bartender.y = 32;
-			mapObjects.add(bartender);
+			
+			var talkerOne:Talker = new Talker(2, 1, ["Welcome to the town hall. My name is BzzbzbBZZZzbbzzbttt. How can I help you?", "No the mayor isn't in today. But his daughter is! can I schedual an apointment?"], Talker.NAKED);
+			var dieChick:Trader = new Trader(7, 1, Trader.GREEN_NAKED, Item.DIAMOND, null, "OOOH THE DIAMOND! Lets get married and have children that will only live for one miserable day!", "Have you got a diamond?? you don't? I only want men that bring me diamonds! GET ME MY DIAMOND!", "smootches");
+			mapObjects.add(dieChick);
+			mapObjects.add(talkerOne);
 		}
 		
 	}
