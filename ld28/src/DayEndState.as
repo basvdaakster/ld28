@@ -15,12 +15,15 @@ package
 		
 		public function DayEndState() 
 		{
-			text = new FlxText(0, FlxG.height / 2, FlxG.width, "You ran out of time!");
+			text = new FlxText(0, FlxG.height / 2, FlxG.width, DayData.hasFlag("lifeended") ? "You ended your life" : "You ran out of time!");
 			text.alignment = "center";
 			text.size = 16;
 			
+			FlxG.music.stop();
+			
 			var but:CustomButton = new CustomButton("Restart", function():void {
 				DayData.reset();
+				FlxG.playMusic(Assets.MUSIC, 1);
 				FlxG.switchState(new TransitionState(new TownState()));
 			});
 			but.text.size = 16;

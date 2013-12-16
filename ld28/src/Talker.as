@@ -22,11 +22,11 @@ package
 		public static const NAKED:int = 60;
 		public static const GREEN_NAKED:int = 90;
 		
-		private var text:Array = [];
-		private var index:int = 0;
-		private var popup:TextPopup = null;
-		private var but:CustomButton = null;
-		private var talking:Boolean = false;
+		protected var text:Array = [];
+		protected var index:int = 0;
+		protected var popup:TextPopup = null;
+		protected var but:CustomButton = null;
+		protected var talking:Boolean = false;
 		
 		public function Talker(x:int, y:int, text:Array, type:int = WHITE)
 		{
@@ -104,7 +104,7 @@ package
 			super.onClick();
 		}
 		
-		private function talk():void
+		public function talk():void
 		{
 			var but:CustomButton = new CustomButton("OK", function():void
 				{
