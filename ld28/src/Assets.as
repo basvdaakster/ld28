@@ -69,11 +69,14 @@ package
 		[Embed(source="../assets/sound/buzz.mp3")]
 		public static var SPEAK:Class;
 		
-		[Embed(source="../assets/sound/NoCancel.wav", mimeType="application/octet-stream")]
+		[Embed(source="../assets/sound/NoCancel.mp3")]
 		public static var CANCEL:Class;
 		
 		[Embed(source = "../assets/sound/flydoor.mp3")]
 		public static var DOOR:Class;
+		
+		[Embed(source="../assets/sound/Pickup_Coin3_01.mp3")]
+		public static var PICKUP:Class;
 	}
 
 }

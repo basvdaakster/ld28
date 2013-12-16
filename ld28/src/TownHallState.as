@@ -49,6 +49,12 @@ package
 			mapObjects.add(dieChick);
 			mapObjects.add(talkerOne);
 		}
+		override public function create():void 
+		{
+			FlxG.play(Assets.DOOR);
+			
+			super.create();
+		}
 		
 	}
 

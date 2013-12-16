@@ -62,6 +62,7 @@ package
 			DayData.addFlag("gravedug");
 			DayData.INVENTORY = null;
 			if (itemOnDig) {
+				FlxG.play(Assets.PICKUP);
 				DayData.INVENTORY = itemOnDig;
 			}
 			if (textOnDig) {

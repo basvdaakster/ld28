@@ -13,6 +13,7 @@ package
 		
 		private var callback:Function = null;
 		private var rat:Boolean;
+		private var flag:Boolean;
 		
 		public function Trigger(x:Number, y:Number, callback:Function, removeAfterTrigger:Boolean = true) 
 		{
@@ -31,10 +32,16 @@ package
 			var state:PlayState = FlxG.state is PlayState ? FlxG.state as PlayState : null;
 			if (state) {
 				if (this.overlaps(state.thePlayer)) {
-					callback();
+					if (!flag) {
+						callback();
+					}
+					flag = true;
 					if(rat) {
 						exists = false;
 					}
+				}
+				else {
+					flag = false;
 				}
 			}
 			

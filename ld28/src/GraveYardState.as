@@ -101,7 +101,7 @@ package
 			crease.y = 9 * 32;
 			mapObjects.add(crease);
 			
-			var your:Grave = new Grave("Your grave", null, "You find nothing...");
+			var your:Grave = new Grave("Your grave.", null, "You are thinking ahead! I like it!");
 			your.x = 9 * 32;
 			your.y = 9 * 32;
 			mapObjects.add(your);
@@ -113,6 +113,7 @@ package
 			
 			var shovel:Trigger = new Trigger(9 * 32, 3 * 32, function():void {
 				DayData.INVENTORY = Item.SHOVEL;
+				FlxG.play(Assets.PICKUP);
 				shovel.exists = false;
 			});
 			shovel.loadGraphic(Assets.ITEM_SHOVEL);
@@ -127,7 +128,12 @@ package
 			bartender.x = bartender.y = 32;
 			mapObjects.add(bartender);
 		}
-		
+		override public function create():void 
+		{
+			FlxG.play(Assets.DOOR);
+			
+			super.create();
+		}
 	}
 
 }	

@@ -57,7 +57,12 @@ package
 			mapObjects.add(dealerOne);
 			mapObjects.add(dealerTwo);
 		}
-		
+		override public function create():void 
+		{
+			FlxG.play(Assets.DOOR);
+			
+			super.create();
+		}
 	}
 
 }

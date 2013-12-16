@@ -104,6 +104,8 @@ package
 			}
 			
 			super.onClick();
+			
+			FlxG.play(Assets.SPEAK);
 		}
 		
 		private function talk():void {
@@ -121,6 +123,7 @@ package
 			var txt:String = "";
 			
 			if (hasTraded) {
+				
 				txt = afterTradeText;
 			}
 			else if (DayData.INVENTORY != inItem) {
@@ -138,6 +141,7 @@ package
 				}
 				hasTraded = true;
 				txt = tradeText;
+				FlxG.play(Assets.PICKUP);
 			}
 			
 			popup = new TextPopup(txt, [but], true);

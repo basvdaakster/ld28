@@ -65,7 +65,7 @@ package
 				state.tileMap.setTile(5, 5, 51, true);
 				DayData.addFlag("vault");
 				DayData.INVENTORY = null;
-			}, "No one gets in here!", "Bloody coffee! I want some grog! But of course... you can't drink on the job can you?", "ZZZZzzzz.....");
+			}, "No one gets in here!", "Bloody coffee! I want some grog! But of course... you can't drink on the job can you? Can you get me some? The store keep across the road should have some. He doesn't like strangers but talks to annyone that has some money on them.", "ZZZZzzzz.....");
 			mapObjects.add(guard);
 			
 			if (DayData.hasFlag("vault")) {
