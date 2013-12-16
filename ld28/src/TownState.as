@@ -119,10 +119,10 @@ package
 			intro.y = 29 * 32;
 			mapObjects.add(intro);
 			
-			var p:Pastor = new Pastor();
-			p.x = 11 * 32;
-			p.y = 30 * 32;
-			mapObjects.add(p);
+			var g:Grave = new Grave("ASDASD", Item.COIN, "CONCINCC");
+			g.x = 11 * 32;
+			g.y = 30 * 32;
+			mapObjects.add(g);
 		}
 		
 		override public function update():void 
