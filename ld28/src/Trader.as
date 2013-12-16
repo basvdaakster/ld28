@@ -31,14 +31,14 @@ package
 		private var hasTraded:Boolean = false;
 		
 		private var inItem:Item;
-		private var outItem:Item;
+		private var outItem:*;
 		
-		public function Trader(x:int, y:int, type:int, inItem:Item, outItem:Item, tradeText:String, noInItemText:String, afterTradeText:String) 
+		public function Trader(x:int, y:int, type:int, inItem:Item, outItemOrCallback:*, tradeText:String, noInItemText:String, afterTradeText:String) 
 		{			
 			super();
 			
 			this.inItem = inItem;
-			this.outItem = outItem;
+			this.outItem = outItemOrCallback;
 			
 			this.tradeText = tradeText;
 			this.noInItemText = noInItemText;
@@ -124,7 +124,12 @@ package
 				txt = noInItemText;
 			}
 			else {
-				DayData.INVENTORY = outItem;
+				if(outItem is Item) {
+					DayData.INVENTORY = outItem;
+				}
+				else if(outItem is Function) {
+					outItem();
+				}
 				hasTraded = true;
 				txt = tradeText;
 			}
