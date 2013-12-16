@@ -30,9 +30,15 @@ package
 		
 		private var hasTraded:Boolean = false;
 		
+		private var inItem:Item;
+		private var outItem:Item;
+		
 		public function Trader(x:int, y:int, type:int, inItem:Item, outItem:Item, tradeText:String, noInItemText:String, afterTradeText:String) 
 		{			
 			super();
+			
+			this.inItem = inItem;
+			this.outItem = outItem;
 			
 			this.tradeText = tradeText;
 			this.noInItemText = noInItemText;
@@ -109,7 +115,21 @@ package
 				}
 			}, 100);
 			
-			popup = new TextPopup(text[index], [but], true);
+			var txt:String = "";
+			
+			if (hasTraded) {
+				txt = afterTradeText;
+			}
+			else if (DayData.INVENTORY != inItem) {
+				txt = noInItemText;
+			}
+			else {
+				DayData.INVENTORY = outItem;
+				hasTraded = true;
+				txt = tradeText;
+			}
+			
+			popup = new TextPopup(txt, [but], true);
 			popup.x = popup.y = 2;
 			(FlxG.state as PlayState).hud.add(popup);
 			
