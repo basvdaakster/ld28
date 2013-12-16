@@ -56,16 +56,24 @@ package
 			mapObjects.add(talkerOne);
 			mapObjects.add(talkerTwo);
 			mapObjects.add(talkerThree);
-			
+				
 			var guard:Trader = new Trader(3, 6, Trader.GREEN, Item.GROG, function():void {
 				var state:PlayState = FlxG.state as PlayState;
 				state.tileMap.setTile(4, 4, 44, true);
 				state.tileMap.setTile(4, 5, 54, true);
 				state.tileMap.setTile(5, 4, 41, true);
 				state.tileMap.setTile(5, 5, 51, true);
+				DayData.addFlag("vault");
 				DayData.INVENTORY = null;
 			}, "No one gets in here!", "Bloody coffee! I want some grog! But ofcourse... you can't drink on the job can you?", "ZZZZzzzz.....");
 			mapObjects.add(guard);
+			
+			if (DayData.hasFlag("vault")) {
+				tileMap.setTile(4, 4, 44, true);
+				tileMap.setTile(4, 5, 54, true);
+				tileMap.setTile(5, 4, 41, true);
+				tileMap.setTile(5, 5, 51, true);
+			}
 			
 			var safea:Safe = new Safe(true);
 			safea.x = 6 * 32;
