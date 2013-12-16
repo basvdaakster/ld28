@@ -66,7 +66,7 @@ package
 		}
 		
 		private function onRightAnswer():void {
-			var p:TextPopup = new TextPopup("Ahh well you have to learn to be an honest gambler. Not the kind of “honest” my friend was. He won a bit to much for his liking and got lynched for it. We burried him in the graveyard. Don't let that happen to you.. Oh your dead by the morning...", function():void {
+			var p:TextPopup = new TextPopup("Ahh well you have to learn to be an honest gambler. Not the kind of “honest” my friend was. He won a bit to much for his liking and got lynched for it. We burried him in the graveyard next to the town hall. Don't let that happen to you.. Oh your dead by the morning...", function():void {
 				p.removeFromState();
 			});
 			(FlxG.state as PlayState).add(p);

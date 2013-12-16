@@ -18,7 +18,7 @@ package
   */
  public class InformationMenuState extends FlxState
  {
-  public var textString:String = "This game is all about information. You are a one day fly and well you guessed it. you've only got one day to live. Wich in our game is just 2 minutes. It is your task to make that day count. Your ultimate goal is to get with the best girl in town. But who is that, where can you find her and most importantly how will you make her fall in love with you. And if you couldn't do that within one day don't worry! You can just start over with the information you already posses. Go get that girl!";
+  public var textString:String = "This game is all about information. You're a one day fly and well you guessed it, you've only got one day to live. Wich in our game is just one minute. It is your task to make that day count. Your ultimate goal is to get with the best girl in town. But who is that, where can you find her and most importantly how will you make her fall in love with you. And if you couldn't do that within one day don't worry! You can just start over with the information you already posses. Go get that girl!";
   public var infoTxt:FlxText = new FlxText(10, 20, 300, textString, true);
   public var backBtn:FlxButton;
   
