@@ -35,7 +35,10 @@ package
 		
 		override public function onClick():void 
 		{
-			if (DayData.hasFlag("diamond") || (FlxG.state as PlayState).hasPopup || FlxU.getDistance((FlxG.state as PlayState).thePlayer.getMidpoint(), this.getMidpoint()) > Clickable.RANGE) {
+			if (DayData.hasFlag("diamond") || DayData.hasFlag("ClickedSafe") || (FlxG.state as PlayState).hasPopup || FlxU.getDistance((FlxG.state as PlayState).thePlayer.getMidpoint(), this.getMidpoint()) > Clickable.RANGE) {
+				var p:TextPopup = new TextPopup("You have already opened a safe", function():void { p.removeFromState() });
+				(FlxG.state as PlayState).add(p);
+				p.x = p.y = 2;
 				return;
 			}
 			
@@ -51,6 +54,8 @@ package
 				(FlxG.state as PlayState).add(p);
 				p.x = p.y = 2;
 			}
+			
+			DayData.addFlag("ClickedSafe");
 			
 			super.onClick();
 		}

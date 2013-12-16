@@ -46,7 +46,7 @@ package
 			var talkerThree:Talker = new Talker(8, 7, ["...Hickup!... Ish thish tomorow? I dontsh ...Hickup!.. know annymore.."], Talker.GREEN_NAKED);
 			talkerThree.setFacing(FlxObject.LEFT);
 			
-			var bartender:Trader = new Trader(1, 1, Trader.NORMAL, Item.COIN, null, "There we go! You finally gotten some sense in yah head!\nOh so you are after the pretty miss fly, the mayors' daughter! Well let me tell you you aint getting in there without a password! Best talk to one of the broads in the brothel down the street. Mabey they know a thing or two. And thats all you get from me!", "I aint talking for nuffink! Get me some coin and well see how loose my lips can get.", "Oh so you are after the pretty miss fly, the mayors' daughter! Well let me tell you you aint getting in there without a password! Best talk to one of the broads in the brothel down the street. Mabey they know a think or two. And thats all you get from me!");
+			var bartender:Trader = new Trader(1, 1, Trader.NORMAL, Item.COIN, null, "There we go! You finally gotten some sense in yah head!\nOh so you are after the pretty miss fly, the mayors' daughter! Well let me tell you you aint getting in there without a password! Best talk to one of the broads in the brothel down the street. Maby they know a thing or two. And thats all you get from me!", "I aint talking for nuffink! Get me some coin and well see how loose my lips can get.", "Oh so you are after the pretty miss fly, the mayors' daughter! Well let me tell you you aint getting in there without a password! Best talk to one of the broads in the brothel down the street. Mabey they know a think or two. And thats all you get from me!");
 			mapObjects.add(bartender);
 			mapObjects.add(talkerOne);
 			mapObjects.add(talkerTwo);

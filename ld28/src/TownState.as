@@ -95,13 +95,13 @@ package
 					var hall:TownHallState = new TownHallState(new FlxPoint(5,8), FlxObject.UP);
 					FlxG.switchState(new TransitionState(hall));
 				}
-				else {
+				else if(!(FlxG.state as PlayState).hasPopup) {
 					FlxG.play(Assets.CANCEL);
 					popup = new TextPopup("You can't enter here without the password! Go away you bumm!",function():void { popup.removeFromState(); });
 					popup.x = popup.y = 2;
 					(FlxG.state as PlayState).hud.add(popup);
 				}
-			});
+			}, false);
 			mapObjects.add(portalHall);
 			
 			//Grave portal

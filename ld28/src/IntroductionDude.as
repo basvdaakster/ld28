@@ -180,7 +180,7 @@ package
 				followPath(myPath);
 			}, 100);
 			
-			var p:TextPopup = new TextPopup("Hey there fellah! You look new in town. If you want some information you best be off to the saloon! Let me guide you!", [but1], true);
+			var p:TextPopup = new TextPopup("Hey there fellah! You look new in town. If you want some information you best be off to the saloon! Let me guide you! and if you don't feel like living annymore. Just talk to me.", [but1], true);
 			
 			p.x = p.y = 2;
 			state.hud.add(p);
