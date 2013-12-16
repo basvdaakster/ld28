@@ -118,11 +118,7 @@ package
 			intro.x = 10 * 32;
 			intro.y = 29 * 32;
 			mapObjects.add(intro);
-<<<<<<< HEAD
-			
-			
-=======
->>>>>>> 7ce00403df9f2f5e7ef2e9edbe706259f6a9817c
+
 		}
 		
 		override public function update():void 
