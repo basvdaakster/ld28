@@ -11,7 +11,7 @@ package
 	public class DayData
 	{
 		
-		public static var LIFE_TIME:Number = 1 * 60;
+		public static var LIFE_TIME:Number = .2 * 60;
 		public static var CURRENT_DAY_TIME:Number = 0;
 		public static var SERIALIZED_OBJECTS:Object = { };
 		public static var INVENTORY:Item = null;
@@ -66,6 +66,8 @@ package
 		public static function reset():void {
 			SERIALIZED_OBJECTS = { };
 			CURRENT_DAY_TIME = LIFE_TIME;
+			INVENTORY = null;
+			FLAGS = [];
 		}
 		
 		public static function updateDay():void {
