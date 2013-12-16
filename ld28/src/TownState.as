@@ -118,11 +118,6 @@ package
 			intro.x = 10 * 32;
 			intro.y = 29 * 32;
 			mapObjects.add(intro);
-			
-			var g:Grave = new Grave("ASDASD", Item.COIN, "CONCINCC");
-			g.x = 11 * 32;
-			g.y = 30 * 32;
-			mapObjects.add(g);
 		}
 		
 		override public function update():void 
