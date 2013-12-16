@@ -26,6 +26,8 @@ package
 		
 		public function TextPopup(text:String, callback:* = null, multilineButtons:Boolean = false) 
 		{
+			(FlxG.state as PlayState).hasPopup = true;
+			
 			height = 20;
 			width = FlxG.width - 4;
 			
@@ -38,7 +40,7 @@ package
 			this.text.shadow = 0xCC000000;
 			
 			buttons = new Vector.<CustomButton>();
-			if (callback is Function) { 
+			if (callback is Function || callback == null) { 
 				var but:CustomButton = new CustomButton("OK", callback);
 				buttons.push(but);
 				things.add(but);
@@ -71,6 +73,8 @@ package
 				b.destroy();
 			}
 			buttons = null;
+			
+			(FlxG.state as PlayState).hasPopup = false;
 			FlxG.state.remove(this, true);
 		}
 		

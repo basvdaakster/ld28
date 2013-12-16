@@ -31,7 +31,7 @@ package
 		public var colliders:FlxGroup;
 		
 		protected var spawnPoint:FlxPoint = null;
-		
+		public var hasPopup:Boolean = false;
 		
 		public function PlayState(spawnPoint:FlxPoint, facing:uint) {
 			thePlayer = new Player(spawnPoint.x, spawnPoint.y);
@@ -87,7 +87,7 @@ package
 			super.create();
 		}
 		
-		var cheatIndex:int = 0;
+		private var cheatIndex:int = 0;
 		override public function update():void 
 		{
 			dbgText.text = "Player Pos: (" + Math.round(thePlayer.x / 1) + ", " + Math.round(thePlayer.y / 1) + ")\n";

@@ -11,7 +11,8 @@ package
 	public class Clickable extends FlxButton
 	{
 		
-		public static var RANGE:Number = 32;
+		public static var RANGE:Number = 64;
+		protected var anim:FlxSprite;
 		
 		public function Clickable() 
 		{
@@ -29,6 +30,22 @@ package
 		}
 		
 		public function onClick():void {
+		}
+		
+		override public function update():void 
+		{
+			if (anim) anim.postUpdate();
+			super.update();
+		}
+		
+		override public function draw():void 
+		{
+			super.draw();
+			if(anim) {
+				anim.x = x;
+				anim.y = y;
+				anim.draw();
+			}
 		}
 		
 	}

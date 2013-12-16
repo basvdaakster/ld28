@@ -8,7 +8,7 @@ package
 	 * ...
 	 * @author Bas van den Aakster
 	 */
-	public class Talker extends Clickable 
+	public class Trader extends Clickable 
 	{
 		
 		public static const NORMAL:int = 0;
@@ -24,9 +24,25 @@ package
 		private var but:CustomButton = null;
 		private var talking:Boolean = false;
 		
-		public function Talker(x:int, y:int, text:Array, type:int = WHITE) 
+		private var tradeText:String;
+		private var noInItemText:String;
+		private var afterTradeText:String;
+		
+		private var hasTraded:Boolean = false;
+		
+		private var inItem:Item;
+		private var outItem:Item;
+		
+		public function Trader(x:int, y:int, type:int, inItem:Item, outItem:Item, tradeText:String, noInItemText:String, afterTradeText:String) 
 		{			
 			super();
+			
+			this.inItem = inItem;
+			this.outItem = outItem;
+			
+			this.tradeText = tradeText;
+			this.noInItemText = noInItemText;
+			this.afterTradeText = afterTradeText;
 			
 			makeGraphic(32, 32, 0);
 			
@@ -54,7 +70,6 @@ package
 			immovable = true;
 			
 			playAnim("idle_s");
-			this.text = text;
 		}
 		
 		override public function onClick():void 
@@ -100,7 +115,21 @@ package
 				}
 			}, 100);
 			
-			popup = new TextPopup(text[index], [but], true);
+			var txt:String = "";
+			
+			if (hasTraded) {
+				txt = afterTradeText;
+			}
+			else if (DayData.INVENTORY != inItem) {
+				txt = noInItemText;
+			}
+			else {
+				DayData.INVENTORY = outItem;
+				hasTraded = true;
+				txt = tradeText;
+			}
+			
+			popup = new TextPopup(txt, [but], true);
 			popup.x = popup.y = 2;
 			(FlxG.state as PlayState).hud.add(popup);
 			
