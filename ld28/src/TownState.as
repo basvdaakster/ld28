@@ -82,15 +82,17 @@ package
 			
 			//Bank portal
 			var portalbank:Trigger = new Trigger(14 * 32 +8, 12.75 * 32, function():void {
-				var bank:BankState = new BankState(new FlxPoint(1, 5), FlxObject.RIGHT);
+				var bank:BankState = new BankState(new FlxPoint(1, 5), FlxObject.RIGHT);	
 				FlxG.switchState(new TransitionState(bank));
 			});
 			mapObjects.add(portalbank);
 			
 			//TownHall portal
 			var portalHall:Trigger = new Trigger(10 * 32, 6 * 32, function():void {
-				var hall:TownHallState = new TownHallState(new FlxPoint(5,8), FlxObject.UP);
-				FlxG.switchState(new TransitionState(hall));
+				if(DayData.hasFlag("password")) {
+					var hall:TownHallState = new TownHallState(new FlxPoint(5,8), FlxObject.UP);
+					FlxG.switchState(new TransitionState(hall));
+				}
 			});
 			mapObjects.add(portalHall);
 			
@@ -118,7 +120,6 @@ package
 			intro.x = 10 * 32;
 			intro.y = 29 * 32;
 			mapObjects.add(intro);
-
 		}
 		
 		override public function update():void 

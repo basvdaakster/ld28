@@ -7,7 +7,7 @@ package
 	public class Trough extends Clickable implements ISerializable
 	{
 		
-		private var hasCoin:Boolean = false;
+		private var hasCoin:Boolean = true;
 		
 		public function Trough(x:int, y:int) 
 		{
@@ -38,11 +38,6 @@ package
 		
 		public function fromObject(o:Object):void {
 			hasCoin = o.hasCoin;
-			
-			if (DayData.hasFlag("trough_coin")) {
-				hasCoin = true;
-				DayData.removeFlag("trough_coin");
-			}
 		}
 		
 	}
