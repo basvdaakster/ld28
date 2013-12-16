@@ -23,6 +23,7 @@ package
 			this.text = new FlxText(x, y, width - 4, text);
 			this.text.alignment = "center";
 			this.text.scrollFactor = new FlxPoint();
+			this.text.shadow = 0xff000000;
 			
 			onOver = function():void {
 				makeGraphic(width, height, 0xffbb7c51);
