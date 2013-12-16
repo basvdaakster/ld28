@@ -31,12 +31,17 @@ package
 		public function set item(value:Item):void 
 		{
 			_item = value;
-			itemSpr = new FlxSprite();
-			itemSpr.scrollFactor = new FlxPoint();
-			itemSpr.loadGraphic(_item.img);
-			itemSpr.centerOffsets(true);
-			itemSpr.x = x;
-			itemSpr.y = y;
+			if (!_item) {
+				itemSpr = null;
+			}
+			else {
+				itemSpr = new FlxSprite();
+				itemSpr.scrollFactor = new FlxPoint();
+				itemSpr.loadGraphic(_item.img);
+				itemSpr.centerOffsets(true);
+				itemSpr.x = x;
+				itemSpr.y = y;
+			}
 		}
 		
 		override public function update():void 

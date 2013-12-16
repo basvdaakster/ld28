@@ -32,7 +32,7 @@ package
 		
 		override public function onClick():void 
 		{
-			if (FlxU.getDistance((FlxG.state as PlayState).thePlayer.getMidpoint(), this.getMidpoint()) > Clickable.RANGE) {
+			if ((FlxG.state as PlayState).hasPopup || FlxU.getDistance((FlxG.state as PlayState).thePlayer.getMidpoint(), this.getMidpoint()) > Clickable.RANGE) {
 				return;
 			}
 			
