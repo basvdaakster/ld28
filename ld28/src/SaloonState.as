@@ -51,7 +51,13 @@ package
 			mapObjects.add(talkerOne);
 			mapObjects.add(talkerTwo);
 			mapObjects.add(talkerThree);
+		}
+		
+		override public function create():void 
+		{
 			FlxG.play(Assets.DOOR);
+			
+			super.create();
 		}
 		
 	}
