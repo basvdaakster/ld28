@@ -12,10 +12,12 @@ package
 	{
 		
 		private var callback:Function = null;
+		private var rat:Boolean;
 		
-		public function Trigger(x:Number, y:Number, callback:Function) 
+		public function Trigger(x:Number, y:Number, callback:Function, removeAfterTrigger:Boolean = true) 
 		{
 			solid = false;
+			rat = removeAfterTrigger;
 			this.x = x;
 			this.y = y;
 			width = 32;
@@ -30,7 +32,9 @@ package
 			if (state) {
 				if (this.overlaps(state.thePlayer)) {
 					callback();
-					exists = false;
+					if(rat) {
+						exists = false;
+					}
 				}
 			}
 			
