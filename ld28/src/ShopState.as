@@ -30,6 +30,8 @@ package
 			tileMap = new FlxTilemap();
 			tileMap.loadMap(FlxTilemap.arrayToCSV(shopMap, 10), Assets.MAIN_SHEET, 32, 32);
 			
+			Utils.addSpecialCollisions(shopMap, 10, mapObjects);
+			
 			// Add portal to next room
 			var portal:Trigger = new Trigger(9 * 32 + 8, 5 * 32, function():void {
 				var town:TownState = new TownState(new FlxPoint(7, 13));

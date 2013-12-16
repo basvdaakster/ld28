@@ -15,7 +15,7 @@ package
 		
 		public function Game():void 
 		{
-			super(640/2, 480/2, MenuState, 2);
+			super(640/2, 480/2, TownState, 2);
 			
 			FlxG.bgColor = 0xff2e1709;
 			
@@ -30,10 +30,10 @@ package
 		
 		override protected function update():void 
 		{
-			//if(FlxG.keys.justPressed("G")) {
-				//FlxG.debug = !FlxG.debug;
-				//FlxG.visualDebug = FlxG.debug;
-			//}
+			if(FlxG.keys.justPressed("G")) {
+				FlxG.debug = !FlxG.debug;
+				FlxG.visualDebug = FlxG.debug;
+			}
 			
 			super.update();
 		}

@@ -45,6 +45,18 @@ package
 				else if (t == 40) { 
 					c = new Collider(mx * 32 + 8, my * 32, 16, 26);
 				}
+				else if (t == 69) {
+					c = new Collider(mx * 32, my * 32, 19, 32);
+				}
+				else if (t == 76 || t == 77) {
+					c = new Collider(mx * 32, my * 32 + 4, 32, 24);
+				}
+				else if (t == 90) {
+					c = new Collider(mx * 32 + 4, my * 32, 28, 20);
+				}
+				else if (t == 91) {
+					c = new Collider(mx * 32, my * 32, 28, 20);
+				}
 				
 				if(c) group.add(c);
 			}

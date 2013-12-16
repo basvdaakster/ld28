@@ -1,6 +1,7 @@
 package  
 {
 	import org.flixel.FlxButton;
+	import org.flixel.FlxG;
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxText;
 	
@@ -15,7 +16,10 @@ package
 		
 		public function CustomButton(text:String, callback:Function = null, width:Number = 300) 
 		{
-			super(0, 0, "", callback);
+			super(0, 0, "", function():void {
+				FlxG.play(Assets.SELECT);
+				callback();
+			});
 			
 			height = 18;
 			makeGraphic(width, height, 0xff8b6147);

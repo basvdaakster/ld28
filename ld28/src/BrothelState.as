@@ -31,6 +31,8 @@ package
 			tileMapTop = new FlxTilemap();
 			tileMapTop.loadMap(FlxTilemap.arrayToCSV(brothelTopMap, 10), Assets.MAIN_SHEET, 32, 32);
 			
+			Utils.addSpecialCollisions(brothelMap, 10, mapObjects);
+			
 			// Add portal to next room
 			var portal:Trigger = new Trigger(0-8, 5 * 32, function():void {
 				var town:TownState = new TownState(new FlxPoint(13, 29));

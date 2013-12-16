@@ -2,6 +2,7 @@ package
 {
 	import org.flixel.FlxG;
 	import org.flixel.FlxObject;
+	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxU;
 	/**
@@ -44,15 +45,17 @@ package
 			this.noInItemText = noInItemText;
 			this.afterTradeText = afterTradeText;
 			
-			makeGraphic(32, 32, 0);
-			
-			this.x = x * 32;
-			this.y = y * 32;
-			width = 32;
-			height = 32;
-			
 			anim = new FlxSprite();
 			anim.loadGraphic(Assets.CHARACTERS, true, false, 32, 32);
+			
+			makeGraphic(12, 20, 0);
+			
+			anim.width = 12;
+			anim.height = 12;
+			anim.solid = true;
+			this.x = x * 32 + (32 - 12) / 2;
+			this.y = y * 32 + (32 - 12) / 2;
+			animOff = new FlxPoint( -(32 - 12) / 2, -18+8);
 			
 			var ishift:int = type;
 			

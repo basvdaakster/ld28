@@ -35,12 +35,14 @@ package
 			add(infoTxt);
 			FlxG.mouse.show();
 			startBtn = new FlxButton(270, 120, "Start your day!", function():void {
-				FlxG.switchState(new TownState());
 				FlxG.playMusic(Assets.MUSIC, 0.2);
+				FlxG.play(Assets.SELECT);
+				FlxG.switchState(new TownState());
 			});
 				startBtn.x = 160 - startBtn.width / 2;
 				add(startBtn);
 				infoBtn = new FlxButton(270, 160, "Information", function():void {
+				FlxG.play(Assets.SELECT);
 				FlxG.switchState(new InformationMenuState());
 			});
 			infoBtn.x = 160 - infoBtn.width / 2;
