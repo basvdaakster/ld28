@@ -52,7 +52,12 @@ package
 			p.y = 1 * 32;
 			mapObjects.add(p);
 		}
-		
+		override public function create():void 
+		{
+			FlxG.play(Assets.DOOR);
+			
+			super.create();
+		}
 	}
 
 }	

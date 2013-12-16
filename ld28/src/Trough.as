@@ -1,5 +1,7 @@
 package  
 {
+	
+	import org.flixel.FlxG;
 	/**
 	 * ...
 	 * @author Bas van den Aakster
@@ -23,6 +25,7 @@ package
 			if (hasCoin) {
 				hasCoin = false;
 				DayData.giveItem(Item.COIN);
+				FlxG.play(Assets.PICKUP);
 			}
 			
 			super.onClick();

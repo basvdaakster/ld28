@@ -181,8 +181,10 @@ package
 			}, 100);
 			
 			var p:TextPopup = new TextPopup("Hey there fellah! You look new in town. If you want some information you best be off to the saloon! Let me guide you!", [but1], true);
+			
 			p.x = p.y = 2;
 			state.hud.add(p);
+			FlxG.play(Assets.SPEAK);
 		}
 		
 		public function toObject():Object {

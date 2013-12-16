@@ -45,7 +45,12 @@ package
 			var storekeeper:Trader = new Trader(1, 1, Trader.NAKED, Item.COIN, Item.GROG, "You want some grog? That'd be one coin please.", "I don't deal with strangers! Be gone.", "Tell that old chum I said hi.");
 			mapObjects.add(storekeeper);
 		}
-		
+		override public function create():void 
+		{
+			FlxG.play(Assets.DOOR);
+			
+			super.create();
+		}
 	}
 
 }

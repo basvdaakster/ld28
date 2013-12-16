@@ -54,6 +54,8 @@ package
 			p.x = p.y = 2;
 			
 			super.onClick();
+			
+			FlxG.play(Assets.SPEAK);
 		}
 		
 		private function onWrongAnswer():void {

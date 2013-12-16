@@ -72,7 +72,12 @@ package
 			mapObjects.add(talkerTwoB);
 			mapObjects.add(talkerThreeB);
 		}
-		
+		override public function create():void 
+		{
+			FlxG.play(Assets.DOOR);
+			
+			super.create();
+		}
 	}
 
 }	
