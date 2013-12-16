@@ -55,7 +55,10 @@ package
 			talkerOneB.setFacing(FlxObject.LEFT);
 			var talkerTwoB:Talker = new Talker(8, 4, ["Well there sailor! You made my wings tingle!"], Talker.NAKED);
 			talkerTwoB.setFacing(FlxObject.LEFT);
-			var talkerThreeB:Talker = new Talker(8, 7, ["Oh the password for the mayors house? Well the guards are a locals here. The password is Venus. Don't tell them I told you so! Or I will kill you!.. Oh you will be dead by tomorow? Hmm... nevermind then."], Talker.NAKED);
+			//var talkerThreeB:Talker = new Talker(8, 7, [""], Talker.NAKED);
+			var talkerThreeB:Trader = new Trader(8, 7, Trader.NAKED, Item.COIN3, function():void {
+				DayData.addFlag("password");
+			}, "Oh the password for the mayors house? Well the guards are a locals here. The password is Venus. Don't tell them I told you so! Or I will kill you!.. Oh you will be dead by tomorow? Hmm... nevermind then.", "No money, no fun", "Bye sweetheart");
 			talkerThreeB.setFacing(FlxObject.LEFT);
 			
 			var bartender:Bartender = new Bartender();

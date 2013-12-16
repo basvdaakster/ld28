@@ -89,8 +89,10 @@ package
 			
 			//TownHall portal
 			var portalHall:Trigger = new Trigger(10 * 32, 6 * 32, function():void {
-				var hall:TownHallState = new TownHallState(new FlxPoint(5,8), FlxObject.UP);
-				FlxG.switchState(new TransitionState(hall));
+				if(DayData.hasFlag("password")) {
+					var hall:TownHallState = new TownHallState(new FlxPoint(5,8), FlxObject.UP);
+					FlxG.switchState(new TransitionState(hall));
+				}
 			});
 			mapObjects.add(portalHall);
 			
