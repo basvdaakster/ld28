@@ -52,7 +52,7 @@ package
 			
 			solid = true;
 			immovable = true;
-			//Player.blockInput = true;
+			Player.blockInput = true;
 		}
 
 		override public function update():void 
