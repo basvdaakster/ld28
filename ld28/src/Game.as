@@ -30,10 +30,10 @@ package
 		
 		override protected function update():void 
 		{
-			if(FlxG.keys.justPressed("G")) {
-				FlxG.debug = !FlxG.debug;
-				FlxG.visualDebug = FlxG.debug;
-			}
+			//if(FlxG.keys.justPressed("G")) {
+				//FlxG.debug = !FlxG.debug;
+				//FlxG.visualDebug = FlxG.debug;
+			//}
 			
 			super.update();
 		}

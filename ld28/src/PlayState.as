@@ -60,7 +60,7 @@ package
 			itemFrame.y = FlxG.height - itemFrame.height - 4;
 			itemFrame.x = 4;
 			
-			hud.add(dbgText);
+			//hud.add(dbgText);
 			hud.add(timeText);
 			hud.add(itemFrame);
 		}
@@ -90,7 +90,7 @@ package
 		private var cheatIndex:int = 0;
 		override public function update():void 
 		{
-			dbgText.text = "Player Pos: (" + Math.round(thePlayer.x / 1) + ", " + Math.round(thePlayer.y / 1) + ")\n";
+			//dbgText.text = "Player Pos: (" + Math.round(thePlayer.x / 1) + ", " + Math.round(thePlayer.y / 1) + ")\n";
 			timeText.text = Utils.formatTime(DayData.CURRENT_DAY_TIME);
 			
 			DayData.updateDay();
@@ -107,13 +107,13 @@ package
 			thePlayer.y = Math.max(0, thePlayer.y);
 			thePlayer.y = Math.min(tileMap.height, thePlayer.y);
 			
-			if (FlxG.keys.justPressed("ONE")) {
-				DayData.INVENTORY = Item.allItems[cheatIndex];
-				cheatIndex++;
-				if (cheatIndex >= Item.allItems.length) {
-					cheatIndex = 0;
-				}
-			}
+			//if (FlxG.keys.justPressed("ONE")) {
+				//DayData.INVENTORY = Item.allItems[cheatIndex];
+				//cheatIndex++;
+				//if (cheatIndex >= Item.allItems.length) {
+					//cheatIndex = 0;
+				//}
+			//}
 			
 			super.update();
 		}

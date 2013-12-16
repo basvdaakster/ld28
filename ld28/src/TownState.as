@@ -124,10 +124,10 @@ package
 		
 		override public function update():void 
 		{
-			if (FlxG.keys.Y) {
-				thePlayer.x = 32 * 7 + (32 - thePlayer.width) / 2;
-				thePlayer.y = 32 * 29 + (32 - thePlayer.height) / 2;
-			}
+			//if (FlxG.keys.Y) {
+				//thePlayer.x = 32 * 7 + (32 - thePlayer.width) / 2;
+				//thePlayer.y = 32 * 29 + (32 - thePlayer.height) / 2;
+			//}
 			
 			super.update();
 		}
