@@ -37,9 +37,18 @@ package
 				tileMap.setTileProperties(tile, FlxObject.NONE);
 			}
 			
+			var talkerOne:Talker = new Talker(1, 5, ["I heard Lucky Puke was in town! That fly is one of the richest fly's I know. Money was flying of him when he rode into town. He tied his catterpillar Jolly thumper on that trough outside."]);
+			talkerOne.setFacing(FlxObject.RIGHT);
+			var talkerTwo:Talker = new Talker(3, 5, ["This bar stinks. They don't even have a decent dung snack next to your ale! I wish I was born near another town. Guess I just have to make the best of it! I hate my short life."], Talker.GREEN);
+			talkerTwo.setFacing(FlxObject.LEFT);
+			var talkerThree:Talker = new Talker(8, 7, ["...Hickup!... Ish thish tomorow? I dontsh ...Hickup!.. know annymore.."], Talker.GREEN_NAKED);
+			talkerThree.setFacing(FlxObject.LEFT);
 			var bartender:Bartender = new Bartender();
 			bartender.x = bartender.y = 32;
 			mapObjects.add(bartender);
+			mapObjects.add(talkerOne);
+			mapObjects.add(talkerTwo);
+			mapObjects.add(talkerThree);
 		}
 		
 	}
