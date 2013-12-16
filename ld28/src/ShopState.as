@@ -37,7 +37,7 @@ package
 				tileMap.setTileProperties(tile, FlxObject.NONE);
 			}
 			
-			var storekeeper:Trader = new Trader(1, 1, Trader.NAKED, Item.COIN, Item.GROG, "Oh the guard send you for some grog. That be one coin please.", "I don't deal with strangers! Be gone.", "Tell that old chum I said hi.");
+			var storekeeper:Trader = new Trader(1, 1, Trader.NAKED, Item.COIN, Item.GROG, "You want some grog? That'd be one coin please.", "I don't deal with strangers! Be gone.", "Tell that old chum I said hi.");
 			mapObjects.add(storekeeper);
 		}
 		

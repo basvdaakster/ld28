@@ -130,6 +130,9 @@ package
 				else if(outItem is Function) {
 					outItem();
 				}
+				else if (outItem == null) {
+					DayData.INVENTORY = null;
+				}
 				hasTraded = true;
 				txt = tradeText;
 			}
