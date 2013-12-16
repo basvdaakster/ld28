@@ -16,12 +16,17 @@ package
 	{
 		
 		private var shopMap:Array = [2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 67, 68, 69, 70, 6, 6, 6, 6, 6, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 5, 6, 81, 82, 6, 81, 82, 6, 6, 45, 5, 6, 91, 92, 6, 91, 92, 6, 6, 55, 5, 6, 81, 82, 6, 81, 82, 6, 6, 7, 5, 6, 91, 92, 6, 91, 92, 6, 6, 7, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8, 9, 9, 9, 9, 9, 9, 9, 9, 10];
-		
+		private var shopTopMap:Array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 101, 102, 0, 101, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 101, 102, 0, 101, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	
 		public function ShopState(spawnPoint:FlxPoint = null, facing:uint = FlxObject.UP) {
 			super(spawnPoint ? spawnPoint : this.spawnPoint, facing);
 			
+			shopTopMap = Utils.convertTiledArray(shopTopMap);
 			shopMap = Utils.convertTiledArray(shopMap);
 			
+			
+			tileMapTop = new FlxTilemap();
+			tileMapTop.loadMap(FlxTilemap.arrayToCSV(shopTopMap, 10), Assets.MAIN_SHEET, 32, 32);
 			tileMap = new FlxTilemap();
 			tileMap.loadMap(FlxTilemap.arrayToCSV(shopMap, 10), Assets.MAIN_SHEET, 32, 32);
 			

@@ -64,6 +64,8 @@ package
 				return;
 			}
 
+			FlxG.play(Assets.SPEAK,1,false,true);
+			
 			talking = true;
 			
 			talk();

@@ -60,7 +60,7 @@ package
 		[Embed(source = "../assets/sound/fly.mp3")]
 		public static var MUSIC:Class;
 		
-		[Embed(source = "../assets/sound/speak to fly.wav", mimeType = "application/octet-stream")]
+		[Embed(source="../assets/sound/buzz.mp3")]
 		public static var SPEAK:Class;
 		
 		[Embed(source="../assets/sound/NoCancel.wav", mimeType="application/octet-stream")]
