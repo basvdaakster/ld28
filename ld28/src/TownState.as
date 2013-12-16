@@ -82,7 +82,7 @@ package
 			
 			//Bank portal
 			var portalbank:Trigger = new Trigger(14 * 32 +8, 12.75 * 32, function():void {
-				var bank:BankState = new BankState(new FlxPoint(1, 5), FlxObject.RIGHT);
+				var bank:BankState = new BankState(new FlxPoint(1, 5), FlxObject.RIGHT);	
 				FlxG.switchState(new TransitionState(bank));
 			});
 			mapObjects.add(portalbank);

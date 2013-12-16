@@ -63,6 +63,7 @@ package
 				state.tileMap.setTile(4, 5, 54, true);
 				state.tileMap.setTile(5, 4, 41, true);
 				state.tileMap.setTile(5, 5, 51, true);
+				DayData.INVENTORY = null;
 			}, "No one gets in here!", "Bloody coffee! I want some grog! But ofcourse... you can't drink on the job can you?", "ZZZZzzzz.....");
 			mapObjects.add(guard);
 			
