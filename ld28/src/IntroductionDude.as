@@ -167,7 +167,7 @@ package
 			myPath = null;
 			done = true;
 			
-			var but1:CustomButton = new CustomButton("G WAT PRAAT JIJ G", function():void {
+			var but1:CustomButton = new CustomButton("Allright, I'll follow.", function():void {
 				p.removeFromState();
 				
 				Player.blockInput = false;
@@ -180,7 +180,7 @@ package
 				followPath(myPath);
 			}, 100);
 			
-			var p:TextPopup = new TextPopup("Go to the saloon you fucking noob, follow me", [but1], true);
+			var p:TextPopup = new TextPopup("Hey there fellah! You look new in town. If you want some information you best be off to the saloon! Let me guide you!", [but1], true);
 			p.x = p.y = 2;
 			state.hud.add(p);
 		}
