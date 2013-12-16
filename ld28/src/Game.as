@@ -15,7 +15,7 @@ package
 		
 		public function Game():void 
 		{
-			super(640/2, 480/2, TownState, 2);
+			super(640/2, 480/2, MenuState, 2);
 			
 			FlxG.bgColor = 0xff2e1709;
 			
